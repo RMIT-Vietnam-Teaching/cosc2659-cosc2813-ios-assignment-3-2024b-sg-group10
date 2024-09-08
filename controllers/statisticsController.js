@@ -3,12 +3,12 @@ const moment = require("moment");
 
 exports.getStatistics = async (req, res) => {
   try {
-    // Statistics of number of reports by type
+    // Statistics of number of reports by type / 1
     const reportStatsByType = await Report.aggregate([
       { $group: { _id: "$type", count: { $sum: 1 } } },
     ]);
 
-    // User activity statistics over time
+    // User activity statistics over time / 2
     const userActivityStats = await Report.aggregate([
       { $group: { _id: "$user", count: { $sum: 1 } } },
       {
