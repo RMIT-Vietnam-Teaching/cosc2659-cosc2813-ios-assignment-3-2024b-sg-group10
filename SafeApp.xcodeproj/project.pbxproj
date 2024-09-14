@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A1C5CF72C9526A600E6A90A /* ProfilePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1C5CF62C9526A600E6A90A /* ProfilePage.swift */; };
 		F4042DB32C92C90F0012A67D /* SafeAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4042DB22C92C90F0012A67D /* SafeAppApp.swift */; };
 		F4042DB52C92C90F0012A67D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4042DB42C92C90F0012A67D /* ContentView.swift */; };
 		F4042DB72C92C9120012A67D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4042DB62C92C9120012A67D /* Assets.xcassets */; };
@@ -59,6 +60,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3A1C5CF62C9526A600E6A90A /* ProfilePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePage.swift; sourceTree = "<group>"; };
 		F4042DAF2C92C90F0012A67D /* SafeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SafeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4042DB22C92C90F0012A67D /* SafeAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeAppApp.swift; sourceTree = "<group>"; };
 		F4042DB42C92C90F0012A67D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 				F4042E072C9331400012A67D /* EmergencyContactsScreen.swift */,
 				F4042E0D2C9334320012A67D /* AddContactView.swift */,
 				F4042E132C9336740012A67D /* SafetyTipsView.swift */,
+				3A1C5CF62C9526A600E6A90A /* ProfilePage.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -384,6 +387,7 @@
 				F4042E122C9336580012A67D /* SafetyTip.swift in Sources */,
 				F4042E042C92F9830012A67D /* CustomIndicatorView.swift in Sources */,
 				F4042DE72C92CACD0012A67D /* HomeScreen.swift in Sources */,
+				3A1C5CF72C9526A600E6A90A /* ProfilePage.swift in Sources */,
 				F4042DED2C92CB670012A67D /* ReportManager.swift in Sources */,
 				F4042DE92C92CADE0012A67D /* NotificationScreen.swift in Sources */,
 				F4042E0E2C9334320012A67D /* AddContactView.swift in Sources */,
