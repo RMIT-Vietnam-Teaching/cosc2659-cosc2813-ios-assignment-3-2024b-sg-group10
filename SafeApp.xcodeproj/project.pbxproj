@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3A1C5CF72C9526A600E6A90A /* ProfilePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1C5CF62C9526A600E6A90A /* ProfilePage.swift */; };
+		3A1C5CF92C954F8000E6A90A /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 3A1C5CF82C954F8000E6A90A /* Localizable.xcstrings */; };
 		F4042DB32C92C90F0012A67D /* SafeAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4042DB22C92C90F0012A67D /* SafeAppApp.swift */; };
 		F4042DB52C92C90F0012A67D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4042DB42C92C90F0012A67D /* ContentView.swift */; };
 		F4042DB72C92C9120012A67D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4042DB62C92C9120012A67D /* Assets.xcassets */; };
@@ -61,6 +62,7 @@
 
 /* Begin PBXFileReference section */
 		3A1C5CF62C9526A600E6A90A /* ProfilePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePage.swift; sourceTree = "<group>"; };
+		3A1C5CF82C954F8000E6A90A /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		F4042DAF2C92C90F0012A67D /* SafeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SafeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4042DB22C92C90F0012A67D /* SafeAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeAppApp.swift; sourceTree = "<group>"; };
 		F4042DB42C92C90F0012A67D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 				F4042DB62C92C9120012A67D /* Assets.xcassets */,
 				F4042DB82C92C9120012A67D /* Preview Content */,
 				F4042DE62C92CACD0012A67D /* HomeScreen.swift */,
+				3A1C5CF82C954F8000E6A90A /* Localizable.xcstrings */,
 			);
 			path = SafeApp;
 			sourceTree = "<group>";
@@ -333,6 +336,7 @@
 			knownRegions = (
 				en,
 				Base,
+				vi,
 			);
 			mainGroup = F4042DA62C92C90F0012A67D;
 			productRefGroup = F4042DB02C92C90F0012A67D /* Products */;
@@ -353,6 +357,7 @@
 			files = (
 				F4042DBA2C92C9120012A67D /* Preview Assets.xcassets in Resources */,
 				F4042DB72C92C9120012A67D /* Assets.xcassets in Resources */,
+				3A1C5CF92C954F8000E6A90A /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

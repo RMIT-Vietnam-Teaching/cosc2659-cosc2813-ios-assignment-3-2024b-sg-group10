@@ -1,7 +1,99 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "" : {
 
+    },
+    "%lld" : {
+
+    },
+    "Add New Contact" : {
+
+    },
+    "Back to Login" : {
+
+    },
+    "Bạn đang ở %@" : {
+
+    },
+    "Cancel" : {
+
+    },
+    "Contact Information" : {
+
+    },
+    "Continue" : {
+
+    },
+    "Date: %@" : {
+
+    },
+    "Edit Profile" : {
+
+    },
+    "Emergency Contacts" : {
+
+    },
+    "Hello, world!" : {
+
+    },
+    "Hướng dẫn sử dụng" : {
+
+    },
+    "Let's Get Started" : {
+
+    },
+    "Name" : {
+
+    },
+    "Nhấn vào biểu tượng chuông để xem thông báo." : {
+
+    },
+    "Nhấn vào nút cộng để báo cáo sự cố mới." : {
+
+    },
+    "Notifications" : {
+
+    },
+    "Password" : {
+
+    },
+    "Phone Number" : {
+
+    },
+    "Register" : {
+
+    },
+    "Report Incident" : {
+
+    },
+    "SafePath Vietnam" : {
+
+    },
+    "Safety Tips" : {
+
+    },
+    "Save Contact" : {
+
+    },
+    "Save Profile" : {
+
+    },
+    "Select Image" : {
+
+    },
+    "Sử dụng bản đồ để xem các báo cáo sự cố giao thông." : {
+
+    },
+    "Submit Report" : {
+
+    },
+    "Tip Details" : {
+
+    },
+    "To register for an account, kindly enter your details." : {
+
+    }
   },
   "version" : "1.0"
 }
