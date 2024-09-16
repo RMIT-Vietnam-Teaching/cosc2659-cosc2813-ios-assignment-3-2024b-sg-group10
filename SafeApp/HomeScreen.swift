@@ -7,10 +7,11 @@ struct HomeScreen: View {
     @State private var showingReportSheet = false
     @State private var showingNotificationSheet = false
     @State private var showingTip = false
+    @State private var showingSearchSheet = false
     @State private var notifications: [Notification] = Notification.getSampleNotifications()
     
-    // New state to handle selected caution type
     @State private var selectedCautionType: String = ""
+    @State private var searchText: String = ""
     
     var body: some View {
         NavigationView {
@@ -75,6 +76,35 @@ struct HomeScreen: View {
                         }
                     }
                     .padding()
+                    
+                    // Button to open the search view as a sheet
+                    Button(action: {
+                        showingSearchSheet.toggle()
+                    }) {
+                        HStack {
+                            Image(systemName: "magnifyingglass")
+                                .foregroundColor(.gray)
+                            Text("Search for location")
+                                .foregroundColor(.gray)
+                            Spacer()
+                        }
+                        .padding()
+                        .background(Color(.systemGray6))
+                        .cornerRadius(10)
+                        .shadow(radius: 4)
+                    }
+                    .padding()
+                    .sheet(isPresented: $showingSearchSheet) {
+                        // Present the SearchView as a sheet
+                        SearchView(searchText: $searchText) { selectedLocation in
+                            // Center map on the selected location when a search result is tapped
+                            if let location = locationManager.location {
+                                // Update region in the MapView
+                                locationManager.requestLocation() // Get updated location if needed
+                                print("Location selected: \(selectedLocation)")
+                            }
+                        }
+                    }
                 }
             }
             .navigationTitle("SafePath Vietnam")

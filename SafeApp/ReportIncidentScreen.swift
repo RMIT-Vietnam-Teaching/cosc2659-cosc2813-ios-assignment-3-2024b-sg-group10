@@ -89,7 +89,9 @@ struct ReportIncidentScreen: View {
 
     // Function to submit the report and pass the data back to HomeScreen
     private func submitReport() {
-        guard let lat = Double(latitude), let lon = Double(longitude) else { return }
+        guard let lat = Double(latitude), let lon = Double(longitude) else {
+            return
+        }
 
         let newReport = TrafficReport(
             id: UUID(),
@@ -97,6 +99,8 @@ struct ReportIncidentScreen: View {
             location: Coordinate(latitude: lat, longitude: lon),
             createdAt: Date()
         )
+        
+        print("Submitting Report: \(newReport)")
         onSubmit(newReport)  // Pass the new report to the HomeScreen via the callback
     }
 }
