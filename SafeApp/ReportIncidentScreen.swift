@@ -1,9 +1,13 @@
 import SwiftUI
+import MapKit
 
 struct ReportIncidentScreen: View {
     @Binding var selectedCautionType: String
     @Environment(\.presentationMode) var presentationMode
 
+    var onSubmit: (TrafficReport) -> Void
+    var currentLocation: CLLocationCoordinate2D  // The current location is passed from HomeScreen
+    
     let cautionTypes = [
         ("Traffic", "car.fill"), ("Police", "shield.fill"),
         ("Accident", "car.2.fill"), ("Hazard", "exclamationmark.triangle.fill"),
@@ -13,6 +17,9 @@ struct ReportIncidentScreen: View {
         ("Map chat", "message.fill"), ("Place", "mappin.and.ellipse")
     ]
     
+    @State private var latitude: String = ""
+    @State private var longitude: String = ""
+
     var body: some View {
         VStack {
             HStack {
@@ -56,11 +63,12 @@ struct ReportIncidentScreen: View {
                 }
             }
             .padding()
-
+            
             Spacer()
 
             // Report Button
             Button(action: {
+                submitReport()  // Call the function to submit the report
                 presentationMode.wrappedValue.dismiss()
             }) {
                 Text("Report")
@@ -72,11 +80,33 @@ struct ReportIncidentScreen: View {
             }
             .padding(.bottom, 20)
         }
+        .onAppear {
+            // Automatically set the current location values
+            latitude = String(currentLocation.latitude)
+            longitude = String(currentLocation.longitude)
+        }
+    }
+
+    // Function to submit the report and pass the data back to HomeScreen
+    private func submitReport() {
+        guard let lat = Double(latitude), let lon = Double(longitude) else { return }
+
+        let newReport = TrafficReport(
+            id: UUID(),
+            cautionType: selectedCautionType,
+            location: Coordinate(latitude: lat, longitude: lon),
+            createdAt: Date()
+        )
+        onSubmit(newReport)  // Pass the new report to the HomeScreen via the callback
     }
 }
 
 struct ReportIncidentScreen_Previews: PreviewProvider {
     static var previews: some View {
-        ReportIncidentScreen(selectedCautionType: .constant("Traffic"))
+        ReportIncidentScreen(
+            selectedCautionType: .constant("Traffic"),
+            onSubmit: { _ in },
+            currentLocation: CLLocationCoordinate2D(latitude: 10.762622, longitude: 106.660172)
+        )
     }
 }

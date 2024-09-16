@@ -3,22 +3,26 @@ import MapKit
 
 struct HomeScreen: View {
     @StateObject private var reportManager = ReportManager()
-    @StateObject private var locationManager = LocationManager()
+    @StateObject private var locationManager = LocationManager()  // Use LocationManager to get current location
     @State private var showingReportSheet = false
     @State private var showingNotificationSheet = false
-    @State private var showingAppMenu = false
     @State private var showingTip = false
     @State private var notifications: [Notification] = Notification.getSampleNotifications()
+    
+    // New state to handle selected caution type
+    @State private var selectedCautionType: String = ""
     
     var body: some View {
         NavigationView {
             ZStack {
+                // MapView showing all the reports
                 MapView(reports: reportManager.reports)
                     .edgesIgnoringSafeArea(.all)
                 
                 VStack {
                     Spacer()
                     
+                    // Display place name if available
                     if let placeName = locationManager.placeName {
                         Text("Bạn đang ở \(placeName)")
                             .font(.subheadline)
@@ -31,6 +35,7 @@ struct HomeScreen: View {
                     HStack {
                         Spacer()
                         
+                        // Info button for tips
                         Button(action: {
                             showingTip.toggle()
                         }) {
@@ -45,6 +50,7 @@ struct HomeScreen: View {
                                 .padding()
                         }
                         
+                        // Button to show the report incident screen
                         Button(action: {
                             showingReportSheet.toggle()
                         }) {
@@ -53,25 +59,26 @@ struct HomeScreen: View {
                                 .foregroundColor(.blue)
                                 .padding()
                         }
+                        // Open the report incident sheet and pass current location to it
                         .sheet(isPresented: $showingReportSheet) {
-                            ReportIncidentScreen(selectedCautionType: .constant("Traffic"))
+                            if let location = locationManager.location {
+                                ReportIncidentScreen(
+                                    selectedCautionType: $selectedCautionType,
+                                    onSubmit: { newReport in
+                                        reportManager.addReport(newReport)  
+                                    },
+                                    currentLocation: location.coordinate  // Pass the current location
+                                )
+                            } else {
+                                Text("Unable to fetch your location.")
+                            }
                         }
                     }
                     .padding()
                 }
             }
             .navigationTitle("SafePath Vietnam")
-            .navigationBarItems(
-                leading: Button(action: {
-                    showingAppMenu.toggle()
-                }) {
-                    Image(systemName: "line.horizontal.3")
-                        .font(.title2)
-                        .fontWeight(.bold)
-                        .foregroundStyle(.black)
-                },
-                
-                trailing: Button(action: {
+            .navigationBarItems(trailing: Button(action: {
                 showingNotificationSheet.toggle()
             }) {
                 ZStack {
@@ -92,9 +99,6 @@ struct HomeScreen: View {
             })
             .sheet(isPresented: $showingNotificationSheet) {
                 NotificationScreen(notifications: $notifications)
-            }
-            .sheet(isPresented: $showingAppMenu, onDismiss: nil){
-                AppMenu()
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)

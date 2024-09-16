@@ -16,4 +16,8 @@ class ReportManager: ObservableObject {
             }
         }
     }
+    
+    func addReport(_ newReport: TrafficReport) {
+        reports.append(newReport)  // Append the new report to the array
+    }
 }

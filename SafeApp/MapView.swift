@@ -3,7 +3,7 @@ import MapKit
 
 struct MapView: View {
     @State private var region = MKCoordinateRegion(
-        center: CLLocationCoordinate2D(latitude: 21.0285, longitude: 105.8542),
+        center: CLLocationCoordinate2D(latitude: 21.0285, longitude: 105.8542), // Default location (Hanoi, Vietnam)
         span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
     )
     
@@ -16,7 +16,7 @@ struct MapView: View {
                     Image(systemName: "mappin.circle.fill")
                         .foregroundColor(.red)
                         .font(.title)
-                    Text(report.title) 
+                    Text(report.cautionType)  // Display caution type instead of title
                         .font(.caption)
                         .padding(5)
                         .background(Color.white)
@@ -34,15 +34,13 @@ struct MapView_Previews: PreviewProvider {
         MapView(reports: [
             TrafficReport(
                 id: UUID(),
-                title: "Road blockage near Central Park",
-                description: "A large tree has fallen and blocked the road.",
+                cautionType: "Road blockage",
                 location: Coordinate(latitude: 21.0280, longitude: 105.8540),
                 createdAt: Date()
             ),
             TrafficReport(
                 id: UUID(),
-                title: "Accident on 7th Avenue",
-                description: "Minor accident reported on 7th Avenue.",
+                cautionType: "Accident",
                 location: Coordinate(latitude: 21.0310, longitude: 105.8500),
                 createdAt: Date()
             )

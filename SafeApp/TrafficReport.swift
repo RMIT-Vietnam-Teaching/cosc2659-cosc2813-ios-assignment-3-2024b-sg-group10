@@ -17,8 +17,7 @@ struct Coordinate: Codable {
 
 struct TrafficReport: Identifiable, Codable {
     var id: UUID
-    var title: String
-    var description: String
+    var cautionType: String
     var location: Coordinate
     var createdAt: Date
 }
