@@ -3,8 +3,8 @@ import SwiftUI
 struct EmergencyContactsScreen: View {
     @State private var contacts: [EmergencyContact] = [
         EmergencyContact(name: "Police", phoneNumber: "113", image: UIImage(named: "policeIcon")),
+        EmergencyContact(name: "Fire Department", phoneNumber: "114", image: UIImage(named: "fireIcon")),
         EmergencyContact(name: "Ambulance", phoneNumber: "115", image: UIImage(named: "ambulanceIcon")),
-        EmergencyContact(name: "Fire Department", phoneNumber: "114", image: UIImage(named: "fireIcon"))
     ]
     
     @State private var showAddContactView = false
