@@ -37,6 +37,9 @@
     "Hello, world!" : {
 
     },
+    "Hey John Doe!" : {
+
+    },
     "Hướng dẫn sử dụng" : {
 
     },
@@ -92,6 +95,9 @@
 
     },
     "To register for an account, kindly enter your details." : {
+
+    },
+    "View Profile" : {
 
     }
   },
