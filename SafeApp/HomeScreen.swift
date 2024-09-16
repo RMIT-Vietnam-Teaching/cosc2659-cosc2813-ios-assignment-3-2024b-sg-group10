@@ -6,6 +6,7 @@ struct HomeScreen: View {
     @StateObject private var locationManager = LocationManager()
     @State private var showingReportSheet = false
     @State private var showingNotificationSheet = false
+    @State private var showingAppMenu = false
     @State private var showingTip = false
     @State private var notifications: [Notification] = Notification.getSampleNotifications()
     
@@ -60,7 +61,17 @@ struct HomeScreen: View {
                 }
             }
             .navigationTitle("SafePath Vietnam")
-            .navigationBarItems(trailing: Button(action: {
+            .navigationBarItems(
+                leading: Button(action: {
+                    showingAppMenu.toggle()
+                }) {
+                    Image(systemName: "line.horizontal.3")
+                        .font(.title2)
+                        .fontWeight(.bold)
+                        .foregroundStyle(.black)
+                },
+                
+                trailing: Button(action: {
                 showingNotificationSheet.toggle()
             }) {
                 ZStack {
@@ -81,6 +92,9 @@ struct HomeScreen: View {
             })
             .sheet(isPresented: $showingNotificationSheet) {
                 NotificationScreen(notifications: $notifications)
+            }
+            .sheet(isPresented: $showingAppMenu, onDismiss: nil){
+                AppMenu()
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
