@@ -54,7 +54,7 @@ struct HomeScreen: View {
                                 .padding()
                         }
                         .sheet(isPresented: $showingReportSheet) {
-                            ReportIncidentScreen()
+                            ReportIncidentScreen(selectedCautionType: .constant("Traffic"))
                         }
                     }
                     .padding()
