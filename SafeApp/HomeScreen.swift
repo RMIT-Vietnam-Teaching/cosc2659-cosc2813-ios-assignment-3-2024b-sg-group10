@@ -37,7 +37,7 @@ struct HomeScreen: View {
                             Image(systemName: "info.circle.fill")
                                 .font(.title)
                                 .foregroundColor(.blue)
-                                .padding()
+//                                .padding()
                         }
                         .popover(isPresented: $showingTip) {
                             CustomTipView()
@@ -51,7 +51,7 @@ struct HomeScreen: View {
                             Image(systemName: "plus.circle.fill")
                                 .font(.title)
                                 .foregroundColor(.blue)
-                                .padding()
+                                .padding(.horizontal)
                         }
                         .sheet(isPresented: $showingReportSheet) {
                             ReportIncidentScreen()
@@ -99,6 +99,7 @@ struct HomeScreen: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .navigationViewStyle(StackNavigationViewStyle())
+        .navigationBarBackButtonHidden()
     }
 }
 
