@@ -11,9 +11,10 @@ struct MapView: View {
         center: CLLocationCoordinate2D(latitude: 21.0285, longitude: 105.8542), // Default center
         span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
     )
-    
     @State private var userAnnotation: [TrafficReport] = [] // Store user annotation separately
-    
+
+    @Environment(\.colorScheme) var colorScheme
+
     var body: some View {
         Map(coordinateRegion: $region, annotationItems: reports + userAnnotation) { report in
             MapAnnotation(coordinate: report.location.location) {
@@ -32,12 +33,13 @@ struct MapView: View {
                     } else {
                         // Red pin for traffic reports
                         Image(systemName: "mappin.circle.fill")
-                            .foregroundColor(.red) // Red color for traffic report pins
+                            .foregroundColor(colorScheme == .dark ? .yellow : .red)
                             .font(.title)
                         Text(report.title)
                             .font(.caption)
                             .padding(5)
-                            .background(Color.white)
+                            .background(colorScheme == .dark ? Color.black.opacity(0.7) : Color.white)
+                            .foregroundColor(colorScheme == .dark ? Color.white : Color.black)
                             .cornerRadius(5)
                             .shadow(radius: 5)
                     }
@@ -72,6 +74,7 @@ struct MapView: View {
                 shouldRecenter = false // Reset the flag after re-centering
             }
         }
+        .ignoresSafeArea()
     }
 }
 

@@ -51,3 +51,9 @@ struct IntroPageView: View {
         .padding()
     }
 }
+
+#Preview {
+    IntroView(intro: .constant(pageIntros.first!), size: CGSize(width: 375, height: 667)) {
+        print("Hello")
+    }
+}

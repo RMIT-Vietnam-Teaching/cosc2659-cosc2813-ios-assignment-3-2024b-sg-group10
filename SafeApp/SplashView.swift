@@ -39,10 +39,14 @@ struct SplashView: View {
     }
 }
 
-struct SplashView_Previews: PreviewProvider {
-    static var previews: some View {
-        SplashView()
-            .previewDevice("iPhone 13") // Thay đổi thiết bị để xem trước trên các thiết bị khác
-            .previewLayout(.sizeThatFits)
-    }
+//struct SplashView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SplashView()
+//            .previewDevice("iPhone 13") // Thay đổi thiết bị để xem trước trên các thiết bị khác
+//            .previewLayout(.sizeThatFits)
+//    }
+//}
+
+#Preview {
+    SplashView()
 }
