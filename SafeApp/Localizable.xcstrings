@@ -94,7 +94,10 @@
     "Register" : {
 
     },
-    "Report Incident" : {
+    "Report" : {
+
+    },
+    "Report issue" : {
 
     },
     "SafePath Vietnam" : {
@@ -119,9 +122,6 @@
 
     },
     "Sử dụng bản đồ để xem các báo cáo sự cố giao thông." : {
-
-    },
-    "Submit Report" : {
 
     },
     "System" : {
