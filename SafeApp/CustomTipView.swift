@@ -7,7 +7,7 @@ struct CustomTipView: View {
                 Image(systemName: "info.circle")
                     .font(.title2)
                     .foregroundColor(.blue)
-                Text("Hướng dẫn sử dụng")
+                Text("User Guide")
                     .font(.title2)
                     .fontWeight(.bold)
             }
@@ -17,7 +17,7 @@ struct CustomTipView: View {
                 Image(systemName: "map")
                     .font(.body)
                     .foregroundColor(.blue)
-                Text("Sử dụng bản đồ để xem các báo cáo sự cố giao thông.")
+                Text("Use the map to view traffic incident reports.")
                     .font(.body)
             }
             
@@ -25,7 +25,7 @@ struct CustomTipView: View {
                 Image(systemName: "plus.circle")
                     .font(.body)
                     .foregroundColor(.blue)
-                Text("Nhấn vào nút cộng để báo cáo sự cố mới.")
+                Text("Tap the plus button to report a new incident.")
                     .font(.body)
             }
             
@@ -33,7 +33,7 @@ struct CustomTipView: View {
                 Image(systemName: "bell")
                     .font(.body)
                     .foregroundColor(.blue)
-                Text("Nhấn vào biểu tượng chuông để xem thông báo.")
+                Text("Tap the bell icon to view notifications.")
                     .font(.body)
             }
             
