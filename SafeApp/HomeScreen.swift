@@ -17,6 +17,7 @@ struct HomeScreen: View {
     var body: some View {
         NavigationView {
             ZStack {
+                // Map View
                 MapView(
                     userLocation: Binding(
                         get: { locationManager.location?.coordinate },
@@ -25,8 +26,25 @@ struct HomeScreen: View {
                     shouldRecenter: $shouldRecenter, // Ensure shouldRecenter comes before reports
                     reports: reportManager.reports
                 )
-
-
+                .edgesIgnoringSafeArea(.all)
+                
+                // Re-center Button (Centered)
+                VStack {
+                    Spacer()
+                    Button(action: {
+                        shouldRecenter = true // Trigger recentering the map
+                    }) {
+                        Image(systemName: "location.fill")
+                            .font(.title)
+                            .foregroundColor(.blue)
+                            .padding()
+                    }
+                    .background(Color.white)
+                    .clipShape(Circle())
+                    .shadow(radius: 5)
+                }
+                
+                // Overlay Buttons (Bottom-Right)
                 VStack {
                     Spacer()
                     
@@ -37,32 +55,19 @@ struct HomeScreen: View {
                             .background(Color.white.opacity(0.7))
                             .cornerRadius(8)
                             .shadow(radius: 5)
+                            .padding(.vertical)
                     }
                     
                     HStack {
                         Spacer()
                         
-                        // Re-center Button
-                        Button(action: {
-                            shouldRecenter = true // Trigger recentering the map
-                        }) {
-                            Image(systemName: "location.fill")
-                                .font(.title)
-                                .foregroundColor(.blue)
-                                .padding()
-                        }
-                        .background(Color.white)
-                        .clipShape(Circle())
-                        .shadow(radius: 5)
-                        .padding(.trailing)
-                        
+                        // Info Button
                         Button(action: {
                             showingTip.toggle()
                         }) {
                             Image(systemName: "info.circle.fill")
                                 .font(.title)
                                 .foregroundColor(colorScheme == .dark ? .white : .blue)
-//                                .padding()
                         }
                         .popover(isPresented: $showingTip) {
                             CustomTipView()
@@ -70,6 +75,7 @@ struct HomeScreen: View {
                                 .padding()
                         }
                         
+                        // Add Report Button
                         Button(action: {
                             showingReportSheet.toggle()
                         }) {
@@ -82,7 +88,7 @@ struct HomeScreen: View {
                             ReportIncidentScreen(selectedCautionType: $selectedCautionType)
                         }
                     }
-                    .padding()
+                    .padding(.bottom)
                 }
             }
             .navigationTitle("SafePath Vietnam")
@@ -95,30 +101,30 @@ struct HomeScreen: View {
                         .fontWeight(.bold)
                         .foregroundColor(colorScheme == .dark ? .white : .blue)
                 },
-                
                 trailing: Button(action: {
-                showingNotificationSheet.toggle()
-            }) {
-                ZStack {
-                    Image(systemName: "bell.fill")
-                        .font(.title2)
-                        .foregroundColor(colorScheme == .dark ? .white : .blue)
+                    showingNotificationSheet.toggle()
+                }) {
+                    ZStack {
+                        Image(systemName: "bell.fill")
+                            .font(.title2)
+                            .foregroundColor(colorScheme == .dark ? .white : .blue)
 
-                    if notifications.count > 0 {
-                        Text("\(notifications.count)")
-                            .font(.caption2)
-                            .foregroundColor(.white)
-                            .padding(6)
-                            .background(Color.red)
-                            .clipShape(Circle())
-                            .offset(x: 10, y: -10)
+                        if notifications.count > 0 {
+                            Text("\(notifications.count)")
+                                .font(.caption2)
+                                .foregroundColor(.white)
+                                .padding(6)
+                                .background(Color.red)
+                                .clipShape(Circle())
+                                .offset(x: 10, y: -10)
+                        }
                     }
                 }
-            })
+            )
             .sheet(isPresented: $showingNotificationSheet) {
                 NotificationScreen(notifications: $notifications)
             }
-            .sheet(isPresented: $showingAppMenu, onDismiss: nil){
+            .sheet(isPresented: $showingAppMenu, onDismiss: nil) {
                 AppMenu()
             }
         }
@@ -128,9 +134,9 @@ struct HomeScreen: View {
     }
 }
 
-
 struct HomeScreen_Previews: PreviewProvider {
     static var previews: some View {
         HomeScreen()
     }
 }
+
