@@ -3,11 +3,12 @@ import SwiftUI
 struct ReportIncidentScreen: View {
     @Binding var selectedCautionType: String
     @Environment(\.presentationMode) var presentationMode
+    @Environment(\.colorScheme) var colorScheme
 
     let cautionTypes = [
         ("Traffic", "car.fill"), ("Police", "shield.fill"),
         ("Accident", "car.2.fill"), ("Hazard", "exclamationmark.triangle.fill"),
-        ("Closure", "road.closed.fill"), ("Blocked lane", "cone.fill"),
+        ("Closure", "xmark"), ("Blocked lane", "cone.fill"),
         ("Map Issue", "exclamationmark.square.fill"), ("Bad weather", "cloud.rain.fill"),
         ("Fuel prices", "fuelpump.fill"), ("Roadside help", "lifepreserver.fill"),
         ("Map chat", "message.fill"), ("Place", "mappin.and.ellipse")
@@ -18,7 +19,9 @@ struct ReportIncidentScreen: View {
             HStack {
                 Text("Report issue")
                     .font(.title)
+                    .fontWeight(.bold)
                     .padding()
+                    .foregroundColor(colorScheme == .dark ? .white : .black)
                 
                 Spacer()
                 
@@ -31,11 +34,12 @@ struct ReportIncidentScreen: View {
                         .frame(width: 24, height: 24)
                         .foregroundColor(.gray)
                 }
-                .padding(.trailing, 16)
+                .padding(.trailing)
             }
+            .padding(.horizontal)
             
             // Caution Types
-            LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: 3), spacing: 20) {
+            LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: 3), spacing: 30) {
                 ForEach(cautionTypes, id: \.0) { caution in
                     VStack {
                         Image(systemName: caution.1)
@@ -44,11 +48,11 @@ struct ReportIncidentScreen: View {
                             .padding()
                             .background(selectedCautionType == caution.0 ? Color.orange : Color.clear)
                             .cornerRadius(10)
-                            .foregroundColor(.gray)
-                        
+                            .foregroundColor(colorScheme == .dark ? .white : .gray)
                         Text(caution.0)
-                            .font(.headline)
-                            .foregroundColor(selectedCautionType == caution.0 ? .orange : .black)
+                            .font(.caption)
+                            .fontWeight(.semibold)
+                            .foregroundColor(selectedCautionType == caution.0 ? .orange : (colorScheme == .dark ? .white : .black))
                     }
                     .onTapGesture {
                         selectedCautionType = caution.0
@@ -64,7 +68,8 @@ struct ReportIncidentScreen: View {
                 presentationMode.wrappedValue.dismiss()
             }) {
                 Text("Report")
-                    .font(.headline)
+                    .font(.title3)
+                    .fontWeight(.bold)
                     .foregroundColor(.white)
                     .frame(width: 200, height: 50)
                     .background(Color.blue)
@@ -72,6 +77,7 @@ struct ReportIncidentScreen: View {
             }
             .padding(.bottom, 20)
         }
+        .background(colorScheme == .dark ? Color.black : Color.white)
     }
 }
 
