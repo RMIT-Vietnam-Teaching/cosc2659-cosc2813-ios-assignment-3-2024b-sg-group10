@@ -99,7 +99,7 @@ struct ProfilePage: View {
                         .font(.title2)
                         .fontWeight(.semibold)
                         .foregroundStyle(.white)
-                        .background(.cyan)
+                        .background(.blue)
                         .clipShape(RoundedRectangle(cornerRadius: 16.0))
                         .padding()
                 }
