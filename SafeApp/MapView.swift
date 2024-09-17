@@ -7,6 +7,8 @@ struct MapView: View {
         span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
     )
     
+    @Environment(\.colorScheme) var colorScheme
+    
     var reports: [TrafficReport]
     
     var body: some View {
@@ -14,17 +16,19 @@ struct MapView: View {
             MapAnnotation(coordinate: report.location.location) {
                 VStack {
                     Image(systemName: "mappin.circle.fill")
-                        .foregroundColor(.red)
+                        .foregroundColor(colorScheme == .dark ? .yellow : .red)
                         .font(.title)
                     Text(report.title) 
                         .font(.caption)
                         .padding(5)
-                        .background(Color.white)
+                        .background(colorScheme == .dark ? Color.black.opacity(0.7) : Color.white)
+                        .foregroundColor(colorScheme == .dark ? Color.white : Color.black)
                         .cornerRadius(5)
                         .shadow(radius: 5)
                 }
             }
         }
+        .ignoresSafeArea()
     }
 }
 

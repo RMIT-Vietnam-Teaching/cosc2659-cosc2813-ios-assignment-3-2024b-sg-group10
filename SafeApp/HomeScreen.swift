@@ -2,6 +2,8 @@ import SwiftUI
 import MapKit
 
 struct HomeScreen: View {
+    @Environment(\.colorScheme) var colorScheme
+    
     @StateObject private var reportManager = ReportManager()
     @StateObject private var locationManager = LocationManager()
     @State private var showingReportSheet = false
@@ -20,7 +22,7 @@ struct HomeScreen: View {
                     Spacer()
                     
                     if let placeName = locationManager.placeName {
-                        Text("Bạn đang ở \(placeName)")
+                        Text("You are at \(placeName)")
                             .font(.subheadline)
                             .padding()
                             .background(Color.white.opacity(0.7))
@@ -36,7 +38,7 @@ struct HomeScreen: View {
                         }) {
                             Image(systemName: "info.circle.fill")
                                 .font(.title)
-                                .foregroundColor(.blue)
+                                .foregroundColor(colorScheme == .dark ? .white : .blue)
 //                                .padding()
                         }
                         .popover(isPresented: $showingTip) {
@@ -50,7 +52,7 @@ struct HomeScreen: View {
                         }) {
                             Image(systemName: "plus.circle.fill")
                                 .font(.title)
-                                .foregroundColor(.blue)
+                                .foregroundColor(colorScheme == .dark ? .white : .blue)
                                 .padding(.horizontal)
                         }
                         .sheet(isPresented: $showingReportSheet) {
@@ -68,7 +70,7 @@ struct HomeScreen: View {
                     Image(systemName: "line.horizontal.3")
                         .font(.title2)
                         .fontWeight(.bold)
-                        .foregroundStyle(.black)
+                        .foregroundColor(colorScheme == .dark ? .white : .blue)
                 },
                 
                 trailing: Button(action: {
@@ -77,8 +79,8 @@ struct HomeScreen: View {
                 ZStack {
                     Image(systemName: "bell.fill")
                         .font(.title2)
-                        .foregroundColor(.blue)
-                    
+                        .foregroundColor(colorScheme == .dark ? .white : .blue)
+
                     if notifications.count > 0 {
                         Text("\(notifications.count)")
                             .font(.caption2)

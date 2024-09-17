@@ -9,6 +9,7 @@ import SwiftUI
 
 struct AppMenu: View {
     @Environment(\.presentationMode) var presentationMode
+    @Environment(\.colorScheme) var colorScheme
     @State private var showingProfilePage = false
     
     var body: some View {
@@ -61,15 +62,17 @@ struct AppMenu: View {
                 
                 // Menu options
                 VStack(alignment: .leading, spacing: 20) {
-                    MenuOptionView(icon: "doc.text", title: "Statistics")
+                    MenuOptionView(icon: "doc.text", title: "Statistics", colorScheme: colorScheme)
                     NavigationLink(destination: SafetyTipsScreen()) {
-                        MenuOptionView(icon: "lightbulb", title: "Tips")
+                        MenuOptionView(icon: "lightbulb", title: "Tips", colorScheme: colorScheme)
                     }
-                    MenuOptionView(icon: "gearshape", title: "Settings")
+                    NavigationLink(destination: SettingsView()) {
+                        MenuOptionView(icon: "gearshape", title: "Settings", colorScheme: colorScheme)
+                    }
                     NavigationLink(destination: AboutView()) {
-                        MenuOptionView(icon: "info.circle", title: "About")
+                        MenuOptionView(icon: "info.circle", title: "About", colorScheme: colorScheme)
                     }
-                    MenuOptionView(icon: "arrow.backward.square", title: "Log Out", isDestructive: true)
+                    MenuOptionView(icon: "arrow.backward.square", title: "Log Out", isDestructive: true, colorScheme: colorScheme)
                 }
                 .padding(.horizontal, 30)
                 
@@ -84,15 +87,16 @@ struct MenuOptionView: View {
     var icon: String
     var title: String
     var isDestructive: Bool = false
-    
+    var colorScheme: ColorScheme
+
     var body: some View {
         HStack {
             Image(systemName: icon)
-                .foregroundColor(isDestructive ? .red : .black)
+                .foregroundColor(isDestructive ? .red : (colorScheme == .dark ? .white : .black)) // Adjust icon color
                 .font(.title2)
                 .fontWeight(.semibold)
             Text(title)
-                .foregroundColor(isDestructive ? .red : .black)
+                .foregroundColor(isDestructive ? .red : (colorScheme == .dark ? .white : .black))
                 .font(.title2)
                 .fontWeight(.semibold)
             Spacer()
