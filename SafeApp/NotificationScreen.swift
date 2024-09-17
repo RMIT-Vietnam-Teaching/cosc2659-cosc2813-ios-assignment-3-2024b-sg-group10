@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct NotificationScreen: View {
+    @Environment(\.colorScheme) var colorScheme
     @Binding var notifications: [Notification] // Use a Binding to modify the notifications array
     
     var body: some View {
@@ -19,11 +20,13 @@ struct NotificationScreen: View {
                 }
             }
         }
-        .background(Color(.systemGroupedBackground).ignoresSafeArea())
+        .background(colorScheme == .dark ? Color.black : Color(.systemGroupedBackground))
+        .ignoresSafeArea()
     }
 }
 
 struct NotificationCardView: View {
+    @Environment(\.colorScheme) var colorScheme
     var notification: Notification
     
     var body: some View {
@@ -37,24 +40,25 @@ struct NotificationCardView: View {
                 Text(notification.title)
                     .font(.headline)
                     .fontWeight(.bold)
+                    .foregroundColor(colorScheme == .dark ? .white : .black)
                 
                 Text(notification.content)
                     .font(.subheadline)
-                    .foregroundColor(.gray)
+                    .foregroundColor(colorScheme == .dark ? .gray : .black)
                     .lineLimit(2)
                 
                 Text("Date: \(notification.dateFormatted)")
                     .font(.footnote)
-                    .foregroundColor(.secondary)
+                    .foregroundColor(colorScheme == .dark ? .gray : .secondary)
                     .padding(.top, 5)
             }
             
             Spacer()
         }
         .padding()
-        .background(Color.white)
+        .background(colorScheme == .dark ? Color(.systemGray6) : Color.white)
         .cornerRadius(10)
-        .shadow(color: Color.black.opacity(0.1), radius: 5, x: 0, y: 5)
+        .shadow(color: colorScheme == .dark ? Color.black.opacity(0.3) : Color.black.opacity(0.1), radius: 5, x: 0, y: 5)
     }
 }
 
