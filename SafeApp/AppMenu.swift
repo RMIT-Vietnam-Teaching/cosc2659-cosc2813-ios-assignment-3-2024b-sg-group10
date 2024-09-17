@@ -10,7 +10,9 @@ import SwiftUI
 struct AppMenu: View {
     @Environment(\.presentationMode) var presentationMode
     @Environment(\.colorScheme) var colorScheme
+    @AppStorage("selectedLanguage") private var selectedLanguage: String = Locale.current.language.languageCode?.identifier ?? "vi"
     @State private var showingProfilePage = false
+    @State private var profileName: String = "John Doe"
     
     var body: some View {
         NavigationStack {
@@ -36,7 +38,7 @@ struct AppMenu: View {
                             .resizable()
                             .frame(width: 90, height: 90)
                         VStack(alignment: .leading) {
-                            Text("Hey John Doe!")
+                            Text("Hey \(profileName)!")
                                 .font(.title2)
                                 .fontWeight(.bold)
                             // Navigation to ProfilePage
@@ -79,6 +81,7 @@ struct AppMenu: View {
                 Spacer()
             }
             .navigationBarHidden(true)
+            .environment(\.locale, Locale(identifier: selectedLanguage))
         }
     }
 }

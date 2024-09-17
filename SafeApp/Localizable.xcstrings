@@ -171,6 +171,16 @@
         }
       }
     },
+    "English" : {
+      "localizations" : {
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tiếng Anh"
+          }
+        }
+      }
+    },
     "For any questions or feedback, please reach out to us at:" : {
       "localizations" : {
         "vi" : {
@@ -191,12 +201,22 @@
         }
       }
     },
-    "Hey John Doe!" : {
+    "Hey %@!" : {
       "localizations" : {
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Chào John Doe!"
+            "value" : "Chào %@!"
+          }
+        }
+      }
+    },
+    "Language" : {
+      "localizations" : {
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ngôn ngữ"
           }
         }
       }
@@ -281,7 +301,17 @@
         }
       }
     },
-    "Report Incident" : {
+    "Report" : {
+      "localizations" : {
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Báo cáo"
+          }
+        }
+      }
+    },
+    "Report issue" : {
       "localizations" : {
         "vi" : {
           "stringUnit" : {
@@ -357,16 +387,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Cài đặt"
-          }
-        }
-      }
-    },
-    "Submit Report" : {
-      "localizations" : {
-        "vi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Gửi Báo cáo"
           }
         }
       }
@@ -447,6 +467,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Hướng dẫn sử dụng"
+          }
+        }
+      }
+    },
+    "Vietnamese" : {
+      "localizations" : {
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tiếng Việt"
           }
         }
       }

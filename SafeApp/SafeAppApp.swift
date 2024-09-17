@@ -10,7 +10,8 @@ import SwiftUI
 @main
 struct SafeAppApp: App {
     @AppStorage("selectedAppearance") private var selectedAppearance: String = "system"
-    
+    @AppStorage("selectedLanguage") var selectedLanguage: String = Locale.current.language.languageCode?.identifier ?? "vi"
+
     var body: some Scene {
         WindowGroup {
             SplashView()
@@ -22,6 +23,7 @@ struct SafeAppApp: App {
                     // Trigger the change when the selectedAppearance changes
                     applyAppearance()
                 }
+                .environment(\.locale, Locale(identifier: selectedLanguage))
         }
     }
     

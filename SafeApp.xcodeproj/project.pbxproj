@@ -12,6 +12,7 @@
 		3A25B9412C97E80000AD37D8 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A25B9402C97E80000AD37D8 /* AboutView.swift */; };
 		3A25B9432C9804B600AD37D8 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A25B9422C9804B600AD37D8 /* SettingsView.swift */; };
 		3A4FACEE2C97DC4E007A8A30 /* AppMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4FACED2C97DC4E007A8A30 /* AppMenu.swift */; };
+		3ACF73452C99669F00A7EC4D /* LanguageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACF73442C99669F00A7EC4D /* LanguageManager.swift */; };
 		F4042DB32C92C90F0012A67D /* SafeAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4042DB22C92C90F0012A67D /* SafeAppApp.swift */; };
 		F4042DB52C92C90F0012A67D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4042DB42C92C90F0012A67D /* ContentView.swift */; };
 		F4042DB72C92C9120012A67D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4042DB62C92C9120012A67D /* Assets.xcassets */; };
@@ -69,6 +70,7 @@
 		3A25B9402C97E80000AD37D8 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		3A25B9422C9804B600AD37D8 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		3A4FACED2C97DC4E007A8A30 /* AppMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppMenu.swift; sourceTree = "<group>"; };
+		3ACF73442C99669F00A7EC4D /* LanguageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageManager.swift; sourceTree = "<group>"; };
 		F4042DAF2C92C90F0012A67D /* SafeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SafeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4042DB22C92C90F0012A67D /* SafeAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeAppApp.swift; sourceTree = "<group>"; };
 		F4042DB42C92C90F0012A67D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -236,6 +238,7 @@
 				F4042DEC2C92CB670012A67D /* ReportManager.swift */,
 				F4042DEE2C92CB760012A67D /* APIManager.swift */,
 				F4042DF42C92D7CF0012A67D /* LocationManager.swift */,
+				3ACF73442C99669F00A7EC4D /* LanguageManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -406,6 +409,7 @@
 				3A1C5CF72C9526A600E6A90A /* ProfilePage.swift in Sources */,
 				F4042DED2C92CB670012A67D /* ReportManager.swift in Sources */,
 				F4042DE92C92CADE0012A67D /* NotificationScreen.swift in Sources */,
+				3ACF73452C99669F00A7EC4D /* LanguageManager.swift in Sources */,
 				F4042E0E2C9334320012A67D /* AddContactView.swift in Sources */,
 				F4042DE52C92CA1B0012A67D /* MapView.swift in Sources */,
 				F4042E0C2C9334160012A67D /* ContactForm.swift in Sources */,
