@@ -7,7 +7,7 @@ struct ReportIncidentScreen: View {
 
     let cautionTypes = [
         ("Traffic", "car.fill"), ("Police", "shield.fill"),
-        ("Accident", "car.2.fill"), ("Hazard", "exclamationmark.triangle.fill"),
+        ("Accident", "car.rear.and.collision.road.lane"), ("Hazard", "exclamationmark.triangle.fill"),
         ("Closure", "xmark"), ("Blocked lane", "cone.fill"),
         ("Map Issue", "exclamationmark.square.fill"), ("Bad weather", "cloud.rain.fill"),
         ("Fuel prices", "fuelpump.fill"), ("Roadside help", "lifepreserver.fill"),
