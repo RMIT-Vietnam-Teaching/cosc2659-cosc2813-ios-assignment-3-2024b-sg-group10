@@ -13,8 +13,25 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     override init() {
         super.init()
         locationManager.delegate = self
-        locationManager.requestWhenInUseAuthorization()
-        locationManager.startUpdatingLocation()
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        checkLocationAuthorization()
+    }
+    
+    // This checks location authorization status and requests it if needed.
+    private func checkLocationAuthorization() {
+        let status = locationManager.authorizationStatus
+        self.authorizationStatus = status
+        
+        switch status {
+        case .notDetermined:
+            locationManager.requestWhenInUseAuthorization()
+        case .restricted, .denied:
+            print("Location access denied/restricted.")
+        case .authorizedWhenInUse, .authorizedAlways:
+            locationManager.startUpdatingLocation()
+        @unknown default:
+            break
+        }
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -28,18 +45,15 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         print("Failed to find user's location: \(error.localizedDescription)")
     }
     
+    // Update authorization status when it changes
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         self.authorizationStatus = status
         if status == .authorizedWhenInUse || status == .authorizedAlways {
-            locationManager.requestLocation()
+            locationManager.startUpdatingLocation()
         }
     }
     
-    func requestLocation() {
-        locationManager.requestWhenInUseAuthorization()
-        locationManager.requestLocation()
-    }
-    
+    // Reverse geocoding to get the place name based on the location.
     private func reverseGeocode(location: CLLocation) {
         geocoder.reverseGeocodeLocation(location) { [weak self] placemarks, error in
             if let error = error {
@@ -48,6 +62,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
                 return
             }
             if let placemark = placemarks?.first {
+                // You can customize this as needed to format the place name
                 self?.placeName = placemark.name ?? "\(placemark.locality ?? ""), \(placemark.administrativeArea ?? "")"
             }
         }

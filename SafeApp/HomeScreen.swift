@@ -7,14 +7,23 @@ struct HomeScreen: View {
     @State private var showingReportSheet = false
     @State private var showingNotificationSheet = false
     @State private var showingTip = false
+    @State private var selectedCautionType: String = ""
     @State private var notifications: [Notification] = Notification.getSampleNotifications()
+    @State private var shouldRecenter = false // State to trigger recentering the map
     
     var body: some View {
         NavigationView {
             ZStack {
-                MapView(reports: reportManager.reports)
-                    .edgesIgnoringSafeArea(.all)
-                
+                MapView(
+                    userLocation: Binding(
+                        get: { locationManager.location?.coordinate },
+                        set: { _ in }
+                    ),
+                    shouldRecenter: $shouldRecenter, // Ensure shouldRecenter comes before reports
+                    reports: reportManager.reports
+                )
+
+
                 VStack {
                     Spacer()
                     
@@ -29,6 +38,20 @@ struct HomeScreen: View {
                     
                     HStack {
                         Spacer()
+                        
+                        // Re-center Button
+                        Button(action: {
+                            shouldRecenter = true // Trigger recentering the map
+                        }) {
+                            Image(systemName: "location.fill")
+                                .font(.title)
+                                .foregroundColor(.blue)
+                                .padding()
+                        }
+                        .background(Color.white)
+                        .clipShape(Circle())
+                        .shadow(radius: 5)
+                        .padding(.trailing)
                         
                         Button(action: {
                             showingTip.toggle()
@@ -53,7 +76,7 @@ struct HomeScreen: View {
                                 .padding()
                         }
                         .sheet(isPresented: $showingReportSheet) {
-                            ReportIncidentScreen()
+                            ReportIncidentScreen(selectedCautionType: $selectedCautionType)
                         }
                     }
                     .padding()
@@ -87,6 +110,7 @@ struct HomeScreen: View {
         .navigationViewStyle(StackNavigationViewStyle())
     }
 }
+
 
 struct HomeScreen_Previews: PreviewProvider {
     static var previews: some View {
