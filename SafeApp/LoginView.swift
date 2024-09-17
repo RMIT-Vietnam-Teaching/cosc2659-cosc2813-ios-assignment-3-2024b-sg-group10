@@ -76,12 +76,17 @@ struct LoginView: View {
                     }
                 }
                 
-                Button(action: { showRegister = true }) {
+                Button(action: {
+                    showRegister = true
+                }) {
                     Text("Register")
                         .fontWeight(.semibold)
-                        .foregroundColor(.blue)
+                        .foregroundColor(.white)
+                        .padding(.vertical, 15)
+                        .frame(maxWidth: .infinity)
+                        .background(Capsule().fill(.gray))
                 }
-                .padding(.top, 10)
+//                .padding(.top, 10)
             }
             .padding()
             .frame(maxWidth: .infinity, maxHeight: .infinity)
