@@ -1,5 +1,6 @@
 import SwiftUI
 import MapKit
+import Combine
 
 struct MapView: View {
     @Binding var userLocation: CLLocationCoordinate2D? // Bind the user location from LocationManager
@@ -12,6 +13,7 @@ struct MapView: View {
         span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
     )
     @State private var userAnnotation: [TrafficReport] = [] // Store user annotation separately
+    private let locationThreshold: CLLocationDistance = 5 // Threshold for significant location change in meters
 
     @Environment(\.colorScheme) var colorScheme
 
@@ -48,10 +50,10 @@ struct MapView: View {
         }
         .onAppear {
             if let userLocation = userLocation {
-                // Center the map on the user's location on appear
+                // Center the map on the user's location on appear, using the current span
                 region = MKCoordinateRegion(
                     center: userLocation,
-                    span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
+                    span: region.span // Keep the current zoom level (span)
                 )
                 
                 // Update the user annotation
@@ -64,19 +66,64 @@ struct MapView: View {
                 )]
             }
         }
+        .onReceive(Just(userLocation)) { newLocation in
+            guard let newLocation = newLocation else { return }
+            if let currentUserLocation = userAnnotation.first?.location.location {
+                let distance = calculateDistance(from: currentUserLocation, to: newLocation)
+                
+                if distance >= locationThreshold {
+                    // Update user annotation without re-centering when significant location change is detected
+                    updateUserAnnotation(with: newLocation)
+                }
+            }
+        }
         .onChange(of: shouldRecenter) { recenter in
             if recenter, let userLocation = userLocation {
-                // Center the map on the user's location when re-centering is triggered
+                // Center the map on the user's location when re-centering is triggered, keeping the current span (zoom level)
                 region = MKCoordinateRegion(
                     center: userLocation,
-                    span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
+                    span: region.span // Keep the current zoom level (span)
                 )
-                shouldRecenter = false // Reset the flag after re-centering
+                DispatchQueue.main.async {
+                    shouldRecenter = false
+                }
             }
         }
         .ignoresSafeArea()
     }
+    
+    // Helper function to update or add user annotation
+    private func updateUserAnnotation(with location: CLLocationCoordinate2D) {
+        // Check if the user annotation already exists in the array
+        if let index = userAnnotation.firstIndex(where: { $0.title == "You are here" }) {
+            // If it exists, update the location of the existing annotation
+            userAnnotation[index] = TrafficReport(
+                id: userAnnotation[index].id, // Keep the same ID
+                title: "You are here",
+                description: "This is your current location",
+                location: Coordinate(latitude: location.latitude, longitude: location.longitude),
+                createdAt: userAnnotation[index].createdAt // Keep the original timestamp
+            )
+        } else {
+            // If it doesn't exist, add a new user annotation
+            userAnnotation.append(TrafficReport(
+                id: UUID(),
+                title: "You are here",
+                description: "This is your current location",
+                location: Coordinate(latitude: location.latitude, longitude: location.longitude),
+                createdAt: Date()
+            ))
+        }
+    }
+    
+    // Helper function to calculate the distance between two CLLocationCoordinate2D points
+    private func calculateDistance(from: CLLocationCoordinate2D, to: CLLocationCoordinate2D) -> CLLocationDistance {
+        let fromLocation = CLLocation(latitude: from.latitude, longitude: from.longitude)
+        let toLocation = CLLocation(latitude: to.latitude, longitude: to.longitude)
+        return fromLocation.distance(from: toLocation) // Returns distance in meters
+    }
 }
+
 
 
 // Preview for MapView
@@ -105,3 +152,4 @@ struct MapView_Previews: PreviewProvider {
         .previewLayout(.sizeThatFits)
     }
 }
+
