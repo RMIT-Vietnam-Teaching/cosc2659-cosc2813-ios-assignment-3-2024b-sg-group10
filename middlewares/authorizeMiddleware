@@ -1,0 +1,10 @@
+const authorizeMiddleware = (role) => {
+    return (req, res, next) => {
+        if (req.userRole !== role) {
+            return res.status(403).json({ message: 'Không đủ quyền' });
+        }
+        next();
+    };
+};
+
+module.exports = authorizeMiddleware;

@@ -1,0 +1,79 @@
+const TrafficReport = require('../models/TrafficReport');
+
+const getAllReports = async (req, res) => {
+    try {
+        const reports = await TrafficReport.find().populate('sender', 'email');
+        res.status(200).json(reports);
+    } catch (error) {
+        res.status(500).json({ message: 'Có lỗi xảy ra' });
+    }
+};
+
+const getReportById = async (req, res) => {
+    const { id } = req.params;
+    try {
+        const report = await TrafficReport.findOne({ _id: id }).populate('sender', 'email');
+        if (!report) {
+            return res.status(404).json({ message: 'Báo cáo không tìm thấy' });
+        }
+        res.status(200).json(report);
+    } catch (error) {
+        res.status(500).json({ message: 'Có lỗi xảy ra' });
+    }
+};
+
+const createReport = async (req, res) => {
+    const { title, description, location } = req.body;
+    try {
+        const newReport = new TrafficReport({
+            title,
+            description,
+            location,
+            sender: req.userId
+        });
+        await newReport.save();
+        res.status(201).json(newReport);
+    } catch (error) {
+        console.error('Error creating report:', error); 
+        res.status(500).json({ message: 'Có lỗi xảy ra' });
+    }
+};
+
+const updateReport = async (req, res) => {
+    const { id } = req.params;
+    const { title, description, location } = req.body;
+    try {
+        const updatedReport = await TrafficReport.findByIdAndUpdate(
+            id,
+            { title, description, location },
+            { new: true }
+        );
+        if (!updatedReport) {
+            return res.status(404).json({ message: 'Báo cáo không tìm thấy' });
+        }
+        res.status(200).json(updatedReport);
+    } catch (error) {
+        res.status(500).json({ message: 'Có lỗi xảy ra' });
+    }
+};
+
+const deleteReport = async (req, res) => {
+    const { id } = req.params;
+    try {
+        const deletedReport = await TrafficReport.findByIdAndDelete(id);
+        if (!deletedReport) {
+            return res.status(404).json({ message: 'Báo cáo không tìm thấy' });
+        }
+        res.status(200).json({ message: 'Báo cáo đã bị xóa' });
+    } catch (error) {
+        res.status(500).json({ message: 'Có lỗi xảy ra' });
+    }
+};
+
+module.exports = {
+    getAllReports,
+    getReportById,
+    createReport,
+    updateReport,
+    deleteReport
+};
