@@ -1,0 +1,866 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "(Empty String)"
+          }
+        }
+      }
+    },
+    "%@" : {
+
+    },
+    "%lld" : {
+      "localizations" : {
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld"
+          }
+        }
+      }
+    },
+    "© 2024 SafePath Vietnam. All rights reserved." : {
+      "localizations" : {
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "© 2024 SafePath Vietnam. Đã đăng ký bản quyền"
+          }
+        }
+      }
+    },
+    "About SafePath Vietnam " : {
+      "localizations" : {
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Về SafePath Vietnam"
+          }
+        }
+      }
+    },
+    "About Us" : {
+      "localizations" : {
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Về chúng tôi"
+          }
+        }
+      }
+    },
+    "Add New Contact" : {
+      "localizations" : {
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Thêm liên lạc mới"
+          }
+        }
+      }
+    },
+    "Admin" : {
+      "localizations" : {
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Admin"
+          }
+        }
+      }
+    },
+    "Appearance" : {
+      "localizations" : {
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Giao diện"
+          }
+        }
+      }
+    },
+    "Are you sure you want to delete this report?" : {
+      "localizations" : {
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bạn có chắc là muốn xoá cảnh báo này"
+          }
+        }
+      }
+    },
+    "Avatar URL" : {
+
+    },
+    "Back to Login" : {
+      "localizations" : {
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Trở về Đăng nhập"
+          }
+        }
+      }
+    },
+    "Cancel" : {
+      "localizations" : {
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Huỷ"
+          }
+        }
+      }
+    },
+    "Cập nhật thông tin" : {
+
+    },
+    "Confirm Password" : {
+
+    },
+    "Contact Information" : {
+      "localizations" : {
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Thông tin liên hệ"
+          }
+        }
+      }
+    },
+    "Contact Us" : {
+      "localizations" : {
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Liên hệ chúng tôi"
+          }
+        }
+      }
+    },
+    "Continue" : {
+      "localizations" : {
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tiếp tục"
+          }
+        }
+      }
+    },
+    "Create Your Account" : {
+      "localizations" : {
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tạo tài khoản"
+          }
+        }
+      }
+    },
+    "Created on:" : {
+      "localizations" : {
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tạo lúc:"
+          }
+        }
+      }
+    },
+    "Created on: %@" : {
+      "localizations" : {
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tạo lúc: %@"
+          }
+        }
+      }
+    },
+    "Dark Mode" : {
+      "localizations" : {
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Chế độ tối"
+          }
+        }
+      }
+    },
+    "Date" : {
+      "localizations" : {
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ngày"
+          }
+        }
+      }
+    },
+    "Date: %@" : {
+      "localizations" : {
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ngày: %@"
+          }
+        }
+      }
+    },
+    "Delete" : {
+      "localizations" : {
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Xoá"
+          }
+        }
+      }
+    },
+    "Delete Report" : {
+      "localizations" : {
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Xoá sự cố"
+          }
+        }
+      }
+    },
+    "Done" : {
+      "localizations" : {
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Xong"
+          }
+        }
+      }
+    },
+    "Edit" : {
+      "localizations" : {
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sửa"
+          }
+        }
+      }
+    },
+    "Edit Profile" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Chỉnh sửa hồ sơ"
+          }
+        }
+      }
+    },
+    "Email" : {
+
+    },
+    "Email: support@safepath.vn" : {
+      "localizations" : {
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Email: support@safepath.vn"
+          }
+        }
+      }
+    },
+    "Emergency Contacts" : {
+      "localizations" : {
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Các liên lạc khẩn cấp"
+          }
+        }
+      }
+    },
+    "English" : {
+
+    },
+    "Error: %@" : {
+
+    },
+    "For any questions or feedback, please reach out to us at:" : {
+      "localizations" : {
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nếu bạn có bất kỳ câu hỏi hoặc phản hồi nào, vui lòng liên hệ với chúng tôi qua:"
+          }
+        }
+      }
+    },
+    "Hello, world!" : {
+      "localizations" : {
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Xin chào, thế giới!"
+          }
+        }
+      }
+    },
+    "Hey John Doe!" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Chào John Doe!"
+          }
+        }
+      }
+    },
+    "Hướng dẫn sử dụng" : {
+
+    },
+    "Key" : {
+      "extractionState" : "manual"
+    },
+    "Language" : {
+
+    },
+    "Lat: %lf, Lon: %lf" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Lat: %1$lf, Lon: %2$lf"
+          }
+        }
+      }
+    },
+    "Let's Get Started" : {
+      "localizations" : {
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cùng bắt đầu nào"
+          }
+        }
+      }
+    },
+    "Light Mode" : {
+      "localizations" : {
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Chế độ sáng"
+          }
+        }
+      }
+    },
+    "Loading user info..." : {
+
+    },
+    "Loading..." : {
+
+    },
+    "Location:" : {
+
+    },
+    "Login" : {
+
+    },
+    "Logout" : {
+
+    },
+    "Message" : {
+
+    },
+    "Name" : {
+      "localizations" : {
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tên"
+          }
+        }
+      }
+    },
+    "Nhấn vào biểu tượng chuông để xem thông báo." : {
+
+    },
+    "Nhấn vào nút cộng để báo cáo sự cố mới." : {
+
+    },
+    "No notifications available" : {
+      "localizations" : {
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Không có thông báo"
+          }
+        }
+      }
+    },
+    "No reports available" : {
+      "localizations" : {
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Không có sự cố"
+          }
+        }
+      }
+    },
+    "Notification Details" : {
+      "localizations" : {
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Chi tiết thông boáo"
+          }
+        }
+      }
+    },
+    "Notifications" : {
+      "localizations" : {
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Thông báo"
+          }
+        }
+      }
+    },
+    "OK" : {
+
+    },
+    "Password" : {
+      "localizations" : {
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mật khẩu"
+          }
+        }
+      }
+    },
+    "Phone Number" : {
+      "localizations" : {
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Số điện thoại"
+          }
+        }
+      }
+    },
+    "Phone: +84 123 456 789" : {
+      "localizations" : {
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Điện thoại: +84 123 456 789"
+          }
+        }
+      }
+    },
+    "Please fill in the form to register a new account." : {
+      "localizations" : {
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hãy điền thông tin để tạo tài khoản"
+          }
+        }
+      }
+    },
+    "Quick Access" : {
+      "localizations" : {
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Truy cập nhanh"
+          }
+        }
+      }
+    },
+    "Register" : {
+      "localizations" : {
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Đăng kí"
+          }
+        }
+      }
+    },
+    "Registration" : {
+      "localizations" : {
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Đăng kí"
+          }
+        }
+      }
+    },
+    "Report Details" : {
+      "localizations" : {
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Thông báo chi tiết"
+          }
+        }
+      }
+    },
+    "Report Incident" : {
+      "localizations" : {
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Báo cáo sự cố"
+          }
+        }
+      }
+    },
+    "Role" : {
+      "localizations" : {
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vai trò"
+          }
+        }
+      }
+    },
+    "SafePath Vietnam" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SafePath Vietnam"
+          }
+        }
+      }
+    },
+    "SafePath Vietnam is a traffic safety reporting app designed to help users report and track traffic accidents in real-time. Our mission is to enhance road safety and provide valuable insights into traffic conditions across Vietnam.\n\nWith SafePath Vietnam, you can:\n- Report traffic incidents quickly and easily.\n- View real-time reports from other users.\n- Access important safety tips and information.\n- Get notifications about incidents and updates in your area.\n\nOur app is built with the latest technology to ensure accuracy and reliability, making your daily commute safer and more informed. Your safety is our top priority." : {
+      "localizations" : {
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SafePath Vietnam là một ứng dụng báo cáo an toàn giao thông được thiết kế để giúp người dùng báo cáo và theo dõi các vụ tai nạn giao thông theo thời gian thực. Sứ mệnh của chúng tôi là nâng cao sự an toàn trên đường và cung cấp những thông tin quý giá về điều kiện giao thông trên toàn Việt Nam.\n\nVới SafePath Vietnam, bạn có thể:\n- Báo cáo các sự cố giao thông một cách nhanh chóng và dễ dàng.\n- Xem các báo cáo theo thời gian thực từ những người dùng khác.\n- Truy cập các mẹo và thông tin an toàn quan trọng.\n- Nhận thông báo về các sự cố và cập nhật trong khu vực của bạn.\n Ứng dụng của chúng tôi được xây dựng với công nghệ tiên tiến nhất để đảm bảo độ chính xác và độ tin cậy, giúp việc di chuyển hàng ngày của bạn an toàn và được thông tin hơn. Sự an toàn của bạn là ưu tiên hàng đầu của chúng tôi."
+          }
+        }
+      }
+    },
+    "Safety Tips" : {
+      "localizations" : {
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mẹo an toàn"
+          }
+        }
+      }
+    },
+    "Save Contact" : {
+      "localizations" : {
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lưu Danh bạ"
+          }
+        }
+      }
+    },
+    "Save Profile" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lưu Hồ sơ"
+          }
+        }
+      }
+    },
+    "Search..." : {
+      "localizations" : {
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tìm…"
+          }
+        }
+      }
+    },
+    "Select Caution Type" : {
+      "localizations" : {
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Chọn loại cảnh báo"
+          }
+        }
+      }
+    },
+    "Select Image" : {
+      "localizations" : {
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Chọn ảnh"
+          }
+        }
+      }
+    },
+    "Settings" : {
+      "localizations" : {
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cài đặt"
+          }
+        }
+      }
+    },
+    "Statistics" : {
+      "localizations" : {
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Thông tin"
+          }
+        }
+      }
+    },
+    "Sử dụng bản đồ để xem các báo cáo sự cố giao thông." : {
+
+    },
+    "Submit Report" : {
+      "localizations" : {
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gửi Báo cáo"
+          }
+        }
+      }
+    },
+    "System" : {
+      "localizations" : {
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hệ thống"
+          }
+        }
+      }
+    },
+    "Tap the bell icon to view notifications." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nhấn vào biểu tượng chuông để xem thông báo."
+          }
+        }
+      }
+    },
+    "Tap the plus button to report a new incident." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nhấn vào nút cộng để báo cáo sự cố mới."
+          }
+        }
+      }
+    },
+    "Thank you for using SafePath Vietnam!" : {
+      "localizations" : {
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cảm ơn vì đã sử dụng SafePath Vietnam!"
+          }
+        }
+      }
+    },
+    "Tip Details" : {
+      "localizations" : {
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Chi tiết mẹo"
+          }
+        }
+      }
+    },
+    "Title" : {
+      "localizations" : {
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tiêu đề"
+          }
+        }
+      }
+    },
+    "To register for an account, kindly enter your details." : {
+      "localizations" : {
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Để đăng ký tài khoản, vui lòng nhập thông tin của bạn."
+          }
+        }
+      }
+    },
+    "Update" : {
+      "localizations" : {
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cập nhật"
+          }
+        }
+      }
+    },
+    "Update Failed" : {
+      "localizations" : {
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cập nhật thất bại"
+          }
+        }
+      }
+    },
+    "Update Notification" : {
+      "localizations" : {
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "cập nhật thông báo"
+          }
+        }
+      }
+    },
+    "Update Profile" : {
+      "localizations" : {
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "cập nhật hồ sơ"
+          }
+        }
+      }
+    },
+    "Use the map to view traffic incident reports." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sử dụng bản đồ để xem các báo cáo sự cố giao thông."
+          }
+        }
+      }
+    },
+    "User Guide" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hướng dẫn sử dụng"
+          }
+        }
+      }
+    },
+    "User Info" : {
+      "localizations" : {
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Thông tin người dùng"
+          }
+        }
+      }
+    },
+    "User Information" : {
+      "localizations" : {
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Thông tin người dùng"
+          }
+        }
+      }
+    },
+    "Users" : {
+      "localizations" : {
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Người dùng"
+          }
+        }
+      }
+    },
+    "Vietnamese" : {
+      "localizations" : {
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tiếng Việt"
+          }
+        }
+      }
+    },
+    "View Profile" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Xem hồ sơ"
+          }
+        }
+      }
+    },
+    "Welcome back," : {
+      "localizations" : {
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Chào mừng,"
+          }
+        }
+      }
+    },
+    "You are at %@" : {
+      "localizations" : {
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bạn đang ở %@"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}
