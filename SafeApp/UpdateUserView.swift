@@ -9,12 +9,42 @@ struct UpdateUserView: View {
     @State private var email: String = ""
     @State private var role: String = ""
     @State private var avatar: String = ""
+    
+    @State private var showDefaultAvatar: Bool = false
 
     var body: some View {
         VStack {
             if let userInfo = userInfo {
-                UserInfoView(label: "User ID", value: userInfo["userId"] as? String ?? "N/A")
-                
+                ZStack {
+                    if showDefaultAvatar || avatar.isEmpty || URL(string: avatar) == nil {
+                        Image(systemName: "person.circle")
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: 100, height: 100)
+                            .clipShape(Circle())
+                            .shadow(radius: 5)
+                            .padding()
+                    } else {
+                        AsyncImage(url: URL(string: avatar)) { image in
+                            image
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
+                                .frame(width: 100, height: 100)
+                                .clipShape(Circle())
+                                .shadow(radius: 5)
+                                .padding()
+                        } placeholder: {
+                            ProgressView()
+                                .frame(width: 100, height: 100)
+                        }
+                    }
+                }
+                .onAppear {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                        self.showDefaultAvatar = true
+                    }
+                }
+
                 TextField("Email", text: $email)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding()
@@ -23,19 +53,15 @@ struct UpdateUserView: View {
                         self.role = userInfo["role"] as? String ?? ""
                         self.avatar = userInfo["avatar"] as? String ?? ""
                     }
-                
+
                 TextField("Role", text: $role)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .padding()
-                
-                TextField("Avatar URL", text: $avatar)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding()
 
                 Button(action: {
                     updateUser()
                 }) {
-                    Text("Cập nhật thông tin")
+                    Text("Update")
                         .padding()
                         .foregroundColor(.white)
                         .background(Color.blue)
@@ -102,7 +128,6 @@ struct UpdateUserView: View {
             return
         }
 
-        // Cấu hình thông tin cần cập nhật
         let updatedUserInfo: [String: Any] = [
             "email": email,
             "role": role,
@@ -115,7 +140,6 @@ struct UpdateUserView: View {
         request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
 
-        // Chuyển đổi thông tin người dùng thành JSON
         guard let jsonData = try? JSONSerialization.data(withJSONObject: updatedUserInfo, options: []) else {
             errorMessage = "Error converting to JSON"
             return
@@ -138,11 +162,10 @@ struct UpdateUserView: View {
                 return
             }
 
-            // Xử lý phản hồi sau khi cập nhật
             do {
                 if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
                     DispatchQueue.main.async {
-                        self.userInfo = json // Cập nhật thông tin người dùng mới
+                        self.userInfo = json
                     }
                 }
             } catch {
@@ -171,31 +194,8 @@ struct UpdateUserView: View {
     }
 }
 
-struct UserInfoView: View {
-    var label: String
-    var value: String
-
-    var body: some View {
-        HStack {
-            Text(label)
-                .fontWeight(.semibold)
-                .frame(width: 100, alignment: .leading)
-            Text(value)
-                .foregroundColor(.blue)
-                .lineLimit(1)
-                .truncationMode(.tail)
-            Spacer()
-        }
-        .padding()
-        .background(Color(.systemGray6))
-        .cornerRadius(12)
-        .shadow(color: Color.black.opacity(0.1), radius: 4, x: 0, y: 2)
-        .padding(.vertical, 6)
-    }
-}
-
 struct UpdateUserView_Previews: PreviewProvider {
     static var previews: some View {
-        UpdateUserView(token: "your_jwt_token_here")
+        UpdateUserView(token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmVlNzMxMjJmZDIyOTllZWNkNzE5MmYiLCJyb2xlIjoidXNlciIsImlhdCI6MTcyNjk5NTkwOSwiZXhwIjoxNzI3MDgyMzA5fQ.0KenY0L7_BY270cfqCbRgV-hEdUmNGdhoPFxIotz-ek")
     }
 }
