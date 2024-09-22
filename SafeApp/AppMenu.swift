@@ -42,7 +42,10 @@ struct AppMenu: View {
                     NavigationLink(destination: AboutView()) {
                         MenuOptionView(icon: "info.circle", title: "About", colorScheme: colorScheme)
                     }
-                    MenuOptionView(icon: "arrow.backward.square", title: "Log Out", isDestructive: true, colorScheme: colorScheme)
+                    
+                    NavigationLink(destination: SplashView()) {
+                        MenuOptionView(icon: "arrow.backward.square", title: "Log Out", isDestructive: true, colorScheme: colorScheme)
+                    }
                 }
                 .padding(.horizontal, 30)
                 

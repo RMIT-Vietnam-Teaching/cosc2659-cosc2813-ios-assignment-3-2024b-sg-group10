@@ -18,7 +18,7 @@ struct HomeScreen: View {
     }
 
     var body: some View {
-        NavigationView {
+//        NavigationView {
             ZStack {
                 MapView(token: token ?? "")
                     .edgesIgnoringSafeArea(.all)
@@ -80,7 +80,7 @@ struct HomeScreen: View {
                     Spacer()
 
                     if let placeName = locationManager.placeName {
-                        Text("Bạn đang ở \(placeName)")
+                        Text("You are at \(placeName)")
                             .font(.subheadline)
                             .padding()
                             .background(Color.white.opacity(0.7))
@@ -123,7 +123,7 @@ struct HomeScreen: View {
             .onAppear {
                 locationManager.startUpdatingLocation()
             }
-        }
+//        }
     }
 }
 

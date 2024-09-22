@@ -11,50 +11,79 @@ struct UpdateUserView: View {
     @State private var avatar: String = ""
 
     var body: some View {
-        VStack {
-            if let userInfo = userInfo {
-                UserInfoView(label: "User ID", value: userInfo["userId"] as? String ?? "N/A")
-                
-                TextField("Email", text: $email)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .padding()
-                    .onAppear {
-                        self.email = userInfo["email"] as? String ?? ""
-                        self.role = userInfo["role"] as? String ?? ""
-                        self.avatar = userInfo["avatar"] as? String ?? ""
+        ZStack {
+            // Background gradient for the entire view
+            LinearGradient(gradient: Gradient(colors: [Color.blue.opacity(0.4), Color.white]), startPoint: .top, endPoint: .bottom)
+                .edgesIgnoringSafeArea(.all)
+            
+            VStack(spacing: 16) {
+                if let userInfo = userInfo {
+                    // User info with custom styling
+                    UserInfoView(label: "User ID", value: userInfo["userId"] as? String ?? "N/A")
+                    
+                    // Email input field
+                    TextField("Email", text: $email)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .padding(.horizontal)
+                        .onAppear {
+                            self.email = userInfo["email"] as? String ?? ""
+                            self.role = userInfo["role"] as? String ?? ""
+                            self.avatar = userInfo["avatar"] as? String ?? ""
+                        }
+                    
+                    // Role input field
+                    TextField("Role", text: $role)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .padding(.horizontal)
+                    
+                    // Avatar input field
+                    TextField("Avatar URL", text: $avatar)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .padding(.horizontal)
+                    
+                    // Update Button with improved design
+                    Button(action: {
+                        updateUser()
+                    }) {
+                        Text("Update Information")
+                            .font(.headline)
+                            .foregroundColor(.white)
+                            .padding()
+                            .frame(maxWidth: .infinity)
+                            .background(Color.blue)
+                            .cornerRadius(12)
+                            .shadow(color: Color.blue.opacity(0.3), radius: 6, x: 0, y: 4)
                     }
-                
-                TextField("Role", text: $role)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .padding()
-                
-                TextField("Avatar URL", text: $avatar)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .padding()
-
-                Button(action: {
-                    updateUser()
-                }) {
-                    Text("Cập nhật thông tin")
+                    .padding(.top, 16)
+                    
+                } else if let errorMessage = errorMessage {
+                    // Error message display
+                    Text("Error: \(errorMessage)")
+                        .foregroundColor(.red)
+                        .fontWeight(.semibold)
                         .padding()
-                        .foregroundColor(.white)
-                        .background(Color.blue)
+                } else {
+                    // Loading state
+                    ProgressView("Loading user info...")
+                        .padding()
+                        .background(Color.white)
                         .cornerRadius(8)
+                        .shadow(color: Color.black.opacity(0.2), radius: 6, x: 0, y: 4)
                 }
-                .padding(.top)
-            } else if let errorMessage = errorMessage {
-                Text("Error: \(errorMessage)")
-                    .padding()
-                    .foregroundColor(.red)
-            } else {
-                Text("Loading user info...")
-                    .padding()
             }
+            .padding()
+            .background(
+                RoundedRectangle(cornerRadius: 16)
+                    .fill(Color.white.opacity(0.9))
+                    .shadow(color: Color.gray.opacity(0.3), radius: 8, x: 0, y: 6)
+            )
+            .padding()
         }
         .onAppear {
             fetchUserInfo()
         }
         .navigationTitle("User Info")
+        .navigationBarTitleDisplayMode(.inline)
     }
 
     func fetchUserInfo() {
@@ -102,7 +131,6 @@ struct UpdateUserView: View {
             return
         }
 
-        // Cấu hình thông tin cần cập nhật
         let updatedUserInfo: [String: Any] = [
             "email": email,
             "role": role,
@@ -115,7 +143,6 @@ struct UpdateUserView: View {
         request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
 
-        // Chuyển đổi thông tin người dùng thành JSON
         guard let jsonData = try? JSONSerialization.data(withJSONObject: updatedUserInfo, options: []) else {
             errorMessage = "Error converting to JSON"
             return
@@ -138,11 +165,10 @@ struct UpdateUserView: View {
                 return
             }
 
-            // Xử lý phản hồi sau khi cập nhật
             do {
                 if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
                     DispatchQueue.main.async {
-                        self.userInfo = json // Cập nhật thông tin người dùng mới
+                        self.userInfo = json
                     }
                 }
             } catch {
