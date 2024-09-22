@@ -4,7 +4,6 @@ struct RegisterView: View {
     @State private var emailID: String = ""
     @State private var password: String = ""
     @State private var confirmPassword: String = ""
-    @State private var isRegistered: Bool = false
     @State private var errorMessage: String? = nil
     @State private var isLoading: Bool = false
     @State private var showAlert: Bool = false
@@ -70,7 +69,7 @@ struct RegisterView: View {
                 }
             }
 
-            Button(action: { isRegistered = false }) {
+            NavigationLink(destination: LoginView()) {
                 Text("Back to Login")
                     .fontWeight(.semibold)
                     .foregroundColor(.blue)
@@ -82,12 +81,9 @@ struct RegisterView: View {
                     .foregroundColor(.red)
                     .padding(.top, 10)
             }
-
         }
         .padding()
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .navigationTitle("Register")
-        .navigationBarHidden(true)
         .alert(isPresented: $showAlert) {
             Alert(
                 title: Text("Registration"),
@@ -95,6 +91,7 @@ struct RegisterView: View {
                 dismissButton: .default(Text("OK"))
             )
         }
+        .navigationBarHidden(true) 
     }
 
     func registerUser() {
@@ -103,25 +100,25 @@ struct RegisterView: View {
             showAlert = true
             return
         }
-        
+
         guard let url = URL(string: "\(Constants.baseURL)/register") else {
             errorMessage = "Invalid URL"
             showAlert = true
             return
         }
-        
+
         isLoading = true
         errorMessage = nil
-        
+
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        
+
         let parameters = [
             "email": emailID,
             "password": password
         ]
-        
+
         do {
             request.httpBody = try JSONSerialization.data(withJSONObject: parameters)
         } catch {
@@ -130,12 +127,12 @@ struct RegisterView: View {
             showAlert = true
             return
         }
-        
+
         URLSession.shared.dataTask(with: request) { data, response, error in
             DispatchQueue.main.async {
                 isLoading = false
             }
-            
+
             if let error = error {
                 DispatchQueue.main.async {
                     errorMessage = "Request error: \(error.localizedDescription)"
@@ -143,14 +140,13 @@ struct RegisterView: View {
                 }
                 return
             }
-            
+
             if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 || httpResponse.statusCode == 201 {
                 DispatchQueue.main.async {
                     showAlert = true
                 }
             } else {
                 DispatchQueue.main.async {
-                   
                     showAlert = true
                 }
             }

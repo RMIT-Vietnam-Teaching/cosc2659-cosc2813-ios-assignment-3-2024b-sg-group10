@@ -98,6 +98,7 @@ struct LoginView: View {
                 )
             }
         }
+        .navigationBarHidden(true) // Chỉ ẩn thanh điều hướng trên LoginView
     }
 }
 
@@ -106,4 +107,3 @@ struct LoginView_Previews: PreviewProvider {
         LoginView()
     }
 }
-
