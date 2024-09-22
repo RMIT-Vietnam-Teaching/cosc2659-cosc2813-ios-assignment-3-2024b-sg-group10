@@ -10,6 +10,8 @@
 		07FE76CD2C9FD74F00065D59 /* AppMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FE76CC2C9FD74F00065D59 /* AppMenu.swift */; };
 		07FE76CF2C9FD7A900065D59 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FE76CE2C9FD7A900065D59 /* SettingsView.swift */; };
 		07FE76D12C9FD7F800065D59 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FE76D02C9FD7F800065D59 /* AboutView.swift */; };
+		07FE76D72C9FEF0A00065D59 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 07FE76D62C9FEF0A00065D59 /* Localizable.xcstrings */; };
+		07FE76D92C9FEF9F00065D59 /* LanguageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FE76D82C9FEF9F00065D59 /* LanguageManager.swift */; };
 		F4042DB32C92C90F0012A67D /* SafeAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4042DB22C92C90F0012A67D /* SafeAppApp.swift */; };
 		F4042DB52C92C90F0012A67D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4042DB42C92C90F0012A67D /* ContentView.swift */; };
 		F4042DB72C92C9120012A67D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4042DB62C92C9120012A67D /* Assets.xcassets */; };
@@ -80,6 +82,8 @@
 		07FE76CC2C9FD74F00065D59 /* AppMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppMenu.swift; sourceTree = "<group>"; };
 		07FE76CE2C9FD7A900065D59 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		07FE76D02C9FD7F800065D59 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
+		07FE76D62C9FEF0A00065D59 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		07FE76D82C9FEF9F00065D59 /* LanguageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageManager.swift; sourceTree = "<group>"; };
 		F4042DAF2C92C90F0012A67D /* SafeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SafeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4042DB22C92C90F0012A67D /* SafeAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeAppApp.swift; sourceTree = "<group>"; };
 		F4042DB42C92C90F0012A67D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -193,6 +197,7 @@
 				F4042DB62C92C9120012A67D /* Assets.xcassets */,
 				F4042DB82C92C9120012A67D /* Preview Content */,
 				F4042DE62C92CACD0012A67D /* HomeScreen.swift */,
+				07FE76D62C9FEF0A00065D59 /* Localizable.xcstrings */,
 			);
 			path = SafeApp;
 			sourceTree = "<group>";
@@ -267,6 +272,7 @@
 				F4042DEC2C92CB670012A67D /* ReportManager.swift */,
 				F4042DEE2C92CB760012A67D /* APIManager.swift */,
 				F4042DF42C92D7CF0012A67D /* LocationManager.swift */,
+				07FE76D82C9FEF9F00065D59 /* LanguageManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -392,6 +398,7 @@
 			knownRegions = (
 				en,
 				Base,
+				vi,
 			);
 			mainGroup = F4042DA62C92C90F0012A67D;
 			productRefGroup = F4042DB02C92C90F0012A67D /* Products */;
@@ -412,6 +419,7 @@
 			files = (
 				F4042DBA2C92C9120012A67D /* Preview Assets.xcassets in Resources */,
 				F4042DB72C92C9120012A67D /* Assets.xcassets in Resources */,
+				07FE76D72C9FEF0A00065D59 /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -445,6 +453,7 @@
 				F4042DEF2C92CB760012A67D /* APIManager.swift in Sources */,
 				F4042E002C92F8D10012A67D /* IntroView.swift in Sources */,
 				F4042DFE2C92F2460012A67D /* PageIntro.swift in Sources */,
+				07FE76D92C9FEF9F00065D59 /* LanguageManager.swift in Sources */,
 				F4042E122C9336580012A67D /* SafetyTip.swift in Sources */,
 				F458297B2C9C2AAB00AC0742 /* UserUpdateView.swift in Sources */,
 				F4042E042C92F9830012A67D /* CustomIndicatorView.swift in Sources */,
@@ -576,6 +585,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -632,6 +642,7 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -641,9 +652,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SafeApp/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SafeApp/Info.plist;
@@ -659,6 +672,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = app.SafeApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -670,9 +684,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SafeApp/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SafeApp/Info.plist;
@@ -688,6 +704,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = app.SafeApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
