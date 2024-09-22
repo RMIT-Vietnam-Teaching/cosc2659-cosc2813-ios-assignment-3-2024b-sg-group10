@@ -12,34 +12,44 @@ struct NotificationScreen: View {
     }
     
     var body: some View {
-        VStack {
-            Text("Notifications")
-                .font(.largeTitle)
-                .fontWeight(.bold)
-                .padding(.top, 40)
-                .padding(.bottom, 20)
-            
-            if viewModel.isLoading {
-                ProgressView()
-            } else if let error = viewModel.error {
-                Text(error)
-                    .foregroundColor(.red)
-            } else {
-                ScrollView {
-                    ForEach(viewModel.notifications) { notification in
-                        NotificationCardView(notification: notification)
-                            .padding(.horizontal)
-                            .padding(.vertical, 5)
+        GeometryReader { geometry in
+            VStack {
+                Text("Notifications")
+                    .font(.largeTitle)
+                    .fontWeight(.bold)
+                    .padding(.top, geometry.size.height * 0.05)
+                    .padding(.bottom, 20)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.horizontal)
+                    .foregroundColor(.primary) // Adaptive to dark mode
+                
+                if viewModel.isLoading {
+                    ProgressView()
+                } else if let error = viewModel.error {
+                    Text(error)
+                        .foregroundColor(.red)
+                        .multilineTextAlignment(.center)
+                        .padding()
+                } else {
+                    ScrollView {
+                        ForEach(viewModel.notifications) { notification in
+                            NotificationCardView(notification: notification)
+                                .padding(.horizontal)
+                                .padding(.vertical, 5)
+                        }
                     }
                 }
             }
+            .background(Color(.systemGroupedBackground).ignoresSafeArea())
+            .frame(width: geometry.size.width, height: geometry.size.height)
         }
-        .background(Color(.systemGroupedBackground).ignoresSafeArea())
     }
 }
 
 struct NotificationCardView: View {
     var notification: Notification
+    
+    @Environment(\.colorScheme) var colorScheme // Environment variable for detecting light/dark mode
     
     var body: some View {
         HStack(alignment: .top, spacing: 10) {
@@ -52,6 +62,7 @@ struct NotificationCardView: View {
                 Text(notification.title)
                     .font(.headline)
                     .fontWeight(.bold)
+                    .foregroundColor(.primary) // Adapts to light/dark mode
                 
                 Text(notification.message)
                     .font(.subheadline)
@@ -67,9 +78,13 @@ struct NotificationCardView: View {
             Spacer()
         }
         .padding()
-        .background(Color.white)
+        .background(Color(UIColor.systemBackground)) // Adaptive background
         .cornerRadius(10)
-        .shadow(color: Color.black.opacity(0.1), radius: 5, x: 0, y: 5)
+        .shadow(color: shadowColor, radius: 5, x: 0, y: 5) // Responsive shadow based on dark/light mode
+    }
+    
+    var shadowColor: Color {
+        colorScheme == .dark ? Color.white.opacity(0.1) : Color.black.opacity(0.1)
     }
 }
 
