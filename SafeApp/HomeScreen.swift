@@ -9,6 +9,7 @@ struct HomeScreen: View {
     @State private var showingNotificationSheet = false
     @State private var showingTip = false
     @State private var showingUserUpdateSheet = false
+    @State private var showingAppMenu = false
     var token: String?
 
     init(token: String?) {
@@ -24,6 +25,19 @@ struct HomeScreen: View {
 
                 VStack {
                     HStack {
+                        // Hamburger button for app menu
+                        Button(action: {
+                            showingAppMenu.toggle()
+                        }) {
+                            Image(systemName: "line.horizontal.3")
+                                .font(.title)
+                                .foregroundColor(.blue)
+                        }
+                        .padding()
+                        .sheet(isPresented: $showingAppMenu) {
+                            AppMenu()
+                        }
+
                         Spacer()
 
                         Button(action: {

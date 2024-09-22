@@ -7,25 +7,32 @@ struct ReportIncidentScreen: View {
     @State private var showAlert: Bool = false
     @State private var alertTitle: String = ""
     @State private var alertMessage: String = ""
+    @State private var selectedCautionType: String = "Traffic"
+    @Environment(\.colorScheme) var colorScheme
+    
     var latitude: String
     var longitude: String
     var token: String?
 
+    let cautionTypes = [
+        ("Traffic", "car.fill", "Heavy traffic ahead."),
+        ("Police", "shield.fill", "Police checkpoint ahead."),
+        ("Accident", "car.2.fill", "Car accident ahead."),
+        ("Hazard", "exclamationmark.triangle.fill", "Road hazard detected."),
+        ("Closure", "xmark", "Road closed ahead."),
+        ("Blocked lane", "cone.fill", "Lane blocked ahead."),
+        ("Map Issue", "exclamationmark.square.fill", "Map issue detected."),
+        ("Bad weather", "cloud.rain.fill", "Bad weather conditions."),
+        ("Fuel prices", "fuelpump.fill", "Fuel prices update."),
+        ("Roadside help", "lifepreserver.fill", "Roadside assistance needed."),
+        ("Map chat", "message.fill", "Chat related to map issues."),
+        ("Place", "mappin.and.ellipse", "Point of interest.")
+    ]
+
     var body: some View {
         VStack(spacing: 20) {
             headerView
-            inputField(title: "Title", text: $title, iconName: "pencil", placeholder: "Enter title here")
-            inputField(title: "Description", text: $description, iconName: "text.justify", placeholder: "Enter description here")
-            
-            VStack(alignment: .leading, spacing: 10) {
-                locationInfo(title: "Latitude", value: latitude)
-                locationInfo(title: "Longitude", value: longitude)
-            }
-            .padding()
-            .background(Color.gray.opacity(0.1))
-            .cornerRadius(12)
-            .shadow(color: Color.black.opacity(0.1), radius: 6, x: 0, y: 2)
-            
+            cautionSelectionView
             submitButton
             Spacer()
         }
@@ -50,12 +57,6 @@ struct ReportIncidentScreen: View {
     
     private var headerView: some View {
         VStack(spacing: 10) {
-            Image(systemName: "exclamationmark.triangle.fill")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 80, height: 80)
-                .foregroundColor(.red)
-            
             Text("Report Incident")
                 .font(.title2)
                 .fontWeight(.bold)
@@ -63,41 +64,39 @@ struct ReportIncidentScreen: View {
         }
     }
     
-    private func inputField(title: String, text: Binding<String>, iconName: String, placeholder: String) -> some View {
-        HStack {
-            Image(systemName: iconName)
-                .foregroundColor(.blue)
-                .padding(.leading, 15)
-            
-            TextField(placeholder, text: text)
+    private var cautionSelectionView: some View {  // Removed the parentheses here
+            VStack {
+                Text("Select Caution Type")
+                    .font(.headline)
+                    .fontWeight(.bold)
+                    .padding(.top, 10)
+                
+                LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: 3), spacing: 30) {
+                    ForEach(cautionTypes, id: \.0) { caution in
+                        VStack {
+                            Image(systemName: caution.1)
+                                .resizable()
+                                .frame(width: 40, height: 40)
+                                .padding()
+                                .background(selectedCautionType == caution.0 ? Color.orange : Color.clear)
+                                .cornerRadius(10)
+                                .foregroundColor(colorScheme == .dark ? .white : .gray)
+                            
+                            Text(caution.0)
+                                .font(.caption)
+                                .fontWeight(.semibold)
+                                .foregroundColor(selectedCautionType == caution.0 ? .orange : (colorScheme == .dark ? .white : .black))
+                        }
+                        .onTapGesture {
+                            selectedCautionType = caution.0
+                            title = caution.0  // Set the caution type as the title
+                            description = caution.2  // Set the pre-defined description
+                        }
+                    }
+                }
                 .padding()
-                .background(Color.white)
-                .cornerRadius(10)
-                .shadow(color: Color.black.opacity(0.1), radius: 5, x: 0, y: 2)
-                .font(.body)
+            }
         }
-        .padding(.horizontal)
-    }
-    
-    private func locationInfo(title: String, value: String) -> some View {
-        HStack {
-            Text(title)
-                .font(.subheadline)
-                .fontWeight(.semibold)
-                .foregroundColor(.gray)
-            
-            Spacer()
-            
-            Text(value)
-                .font(.subheadline)
-                .fontWeight(.regular)
-                .foregroundColor(.black)
-        }
-        .padding()
-        .background(Color.white)
-        .cornerRadius(10)
-        .shadow(color: Color.black.opacity(0.1), radius: 4, x: 0, y: 2)
-    }
     
     private var submitButton: some View {
         Button(action: submitReport) {

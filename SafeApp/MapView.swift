@@ -9,6 +9,7 @@ struct MapView: View {
     )
     private let updateInterval: TimeInterval = 60
     @State private var timer: Timer? // Sử dụng @State để quản lý Timer
+    @Environment(\.colorScheme) var colorScheme // Detect system appearance (dark or light mode)
 
     init(token: String) {
         _viewModel = StateObject(wrappedValue: TrafficReportsViewModel(token: token))
@@ -19,15 +20,18 @@ struct MapView: View {
             Map(coordinateRegion: $region, annotationItems: viewModel.reports) { report in
                 MapAnnotation(coordinate: report.location.location) {
                     VStack {
+                        // Adjust the pin color based on dark or light mode
                         Image(systemName: "mappin.circle.fill")
-                            .foregroundColor(.red)
+                            .foregroundColor(colorScheme == .dark ? .yellow : .red)
                             .font(.title)
+
                         Text(report.title)
                             .font(.caption)
                             .padding(5)
-                            .background(Color.white)
+                            .background(colorScheme == .dark ? Color.black.opacity(0.7) : Color.white)
                             .cornerRadius(5)
                             .shadow(radius: 5)
+                            .foregroundColor(colorScheme == .dark ? .white : .black)
                     }
                 }
             }
