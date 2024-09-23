@@ -28,8 +28,4 @@ struct CustomIndicatorView: View {
     }
 }
 
-struct CustomIndicatorView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
-}
+

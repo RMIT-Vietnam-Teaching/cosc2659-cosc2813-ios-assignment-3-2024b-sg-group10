@@ -8,7 +8,8 @@
   Created  date: 3/9/2024
   Last modified: 23/9/2024
   Acknowledgement: Acknowledge the resources that you use here.
-*/rt Foundation
+*/
+import Foundation
 import Combine
 
 class APIManager {
