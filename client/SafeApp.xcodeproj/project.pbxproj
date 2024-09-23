@@ -13,12 +13,8 @@
 		07FE76D12C9FD7F800065D59 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FE76D02C9FD7F800065D59 /* AboutView.swift */; };
 		07FE76D92C9FEF9F00065D59 /* LanguageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FE76D82C9FEF9F00065D59 /* LanguageManager.swift */; };
 		F4042DB32C92C90F0012A67D /* SafeAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4042DB22C92C90F0012A67D /* SafeAppApp.swift */; };
-		F4042DB52C92C90F0012A67D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4042DB42C92C90F0012A67D /* ContentView.swift */; };
 		F4042DB72C92C9120012A67D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4042DB62C92C9120012A67D /* Assets.xcassets */; };
 		F4042DBA2C92C9120012A67D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4042DB92C92C9120012A67D /* Preview Assets.xcassets */; };
-		F4042DC42C92C9120012A67D /* SafeAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4042DC32C92C9120012A67D /* SafeAppTests.swift */; };
-		F4042DCE2C92C9120012A67D /* SafeAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4042DCD2C92C9120012A67D /* SafeAppUITests.swift */; };
-		F4042DD02C92C9120012A67D /* SafeAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4042DCF2C92C9120012A67D /* SafeAppUITestsLaunchTests.swift */; };
 		F4042DE12C92C9750012A67D /* TrafficReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4042DE02C92C9750012A67D /* TrafficReport.swift */; };
 		F4042DE32C92C9D80012A67D /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4042DE22C92C9D80012A67D /* Notification.swift */; };
 		F4042DE52C92CA1B0012A67D /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4042DE42C92CA1B0012A67D /* MapView.swift */; };
@@ -86,14 +82,10 @@
 		07FE76D82C9FEF9F00065D59 /* LanguageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageManager.swift; sourceTree = "<group>"; };
 		F4042DAF2C92C90F0012A67D /* SafeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SafeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4042DB22C92C90F0012A67D /* SafeAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeAppApp.swift; sourceTree = "<group>"; };
-		F4042DB42C92C90F0012A67D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F4042DB62C92C9120012A67D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F4042DB92C92C9120012A67D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F4042DBF2C92C9120012A67D /* SafeAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SafeAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		F4042DC32C92C9120012A67D /* SafeAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeAppTests.swift; sourceTree = "<group>"; };
 		F4042DC92C92C9120012A67D /* SafeAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SafeAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		F4042DCD2C92C9120012A67D /* SafeAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeAppUITests.swift; sourceTree = "<group>"; };
-		F4042DCF2C92C9120012A67D /* SafeAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		F4042DE02C92C9750012A67D /* TrafficReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrafficReport.swift; sourceTree = "<group>"; };
 		F4042DE22C92C9D80012A67D /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		F4042DE42C92CA1B0012A67D /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
@@ -166,8 +158,6 @@
 			isa = PBXGroup;
 			children = (
 				F4042DB12C92C90F0012A67D /* SafeApp */,
-				F4042DC22C92C9120012A67D /* SafeAppTests */,
-				F4042DCC2C92C9120012A67D /* SafeAppUITests */,
 				F4042DB02C92C90F0012A67D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -193,7 +183,6 @@
 				F4042DDD2C92C9510012A67D /* Models */,
 				F4042DDC2C92C9480012A67D /* Views */,
 				F4042DB22C92C90F0012A67D /* SafeAppApp.swift */,
-				F4042DB42C92C90F0012A67D /* ContentView.swift */,
 				F4042DB62C92C9120012A67D /* Assets.xcassets */,
 				F4042DB82C92C9120012A67D /* Preview Content */,
 				F4042DE62C92CACD0012A67D /* HomeScreen.swift */,
@@ -208,23 +197,6 @@
 				F4042DB92C92C9120012A67D /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		F4042DC22C92C9120012A67D /* SafeAppTests */ = {
-			isa = PBXGroup;
-			children = (
-				F4042DC32C92C9120012A67D /* SafeAppTests.swift */,
-			);
-			path = SafeAppTests;
-			sourceTree = "<group>";
-		};
-		F4042DCC2C92C9120012A67D /* SafeAppUITests */ = {
-			isa = PBXGroup;
-			children = (
-				F4042DCD2C92C9120012A67D /* SafeAppUITests.swift */,
-				F4042DCF2C92C9120012A67D /* SafeAppUITestsLaunchTests.swift */,
-			);
-			path = SafeAppUITests;
 			sourceTree = "<group>";
 		};
 		F4042DDC2C92C9480012A67D /* Views */ = {
@@ -447,7 +419,6 @@
 				F4042DE32C92C9D80012A67D /* Notification.swift in Sources */,
 				F4042DF12C92CB900012A67D /* APIConstants.swift in Sources */,
 				F42B6EA42C980DE200B3A70A /* UserSession.swift in Sources */,
-				F4042DB52C92C90F0012A67D /* ContentView.swift in Sources */,
 				07FE76D12C9FD7F800065D59 /* AboutView.swift in Sources */,
 				F4042DF72C92F1530012A67D /* RegisterView.swift in Sources */,
 				F4042DEF2C92CB760012A67D /* APIManager.swift in Sources */,
@@ -497,7 +468,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F4042DC42C92C9120012A67D /* SafeAppTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -505,8 +475,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F4042DCE2C92C9120012A67D /* SafeAppUITests.swift in Sources */,
-				F4042DD02C92C9120012A67D /* SafeAppUITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -714,7 +682,6 @@
 		F4042DD72C92C9120012A67D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -733,7 +700,6 @@
 		F4042DD82C92C9120012A67D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -752,7 +718,6 @@
 		F4042DDA2C92C9120012A67D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -769,7 +734,6 @@
 		F4042DDB2C92C9120012A67D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;

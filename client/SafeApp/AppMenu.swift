@@ -1,4 +1,3 @@
-
 //
 //  AppMenu.swift
 //  SafeApp
@@ -29,10 +28,8 @@ struct AppMenu: View {
                     .padding()
                 }
             
-                
                 // Menu options
                 VStack(alignment: .leading, spacing: 20) {
-                    MenuOptionView(icon: "doc.text", title: "Statistics", colorScheme: colorScheme)
                     NavigationLink(destination: SafetyTipsScreen()) {
                         MenuOptionView(icon: "lightbulb", title: "Tips", colorScheme: colorScheme)
                     }
@@ -43,7 +40,9 @@ struct AppMenu: View {
                         MenuOptionView(icon: "info.circle", title: "About", colorScheme: colorScheme)
                     }
                     
-                    NavigationLink(destination: SplashView()) {
+                    Button(action: {
+                        logout() // Call the logout function
+                    }) {
                         MenuOptionView(icon: "arrow.backward.square", title: "Log Out", isDestructive: true, colorScheme: colorScheme)
                     }
                 }
@@ -52,6 +51,20 @@ struct AppMenu: View {
                 Spacer()
             }
             .navigationBarHidden(true)
+        }
+    }
+    
+    // Logout function to clear data and navigate to SplashView
+    func logout() {
+        // Clear user data or reset app state here
+        UserDefaults.standard.removeObject(forKey: "userLoggedIn") // Example of clearing saved login state
+        // Any additional resetting of app state should go here
+        
+        // Navigate to the SplashView
+        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+           let window = windowScene.windows.first {
+            window.rootViewController = UIHostingController(rootView: SplashView())
+            window.makeKeyAndVisible()
         }
     }
 }

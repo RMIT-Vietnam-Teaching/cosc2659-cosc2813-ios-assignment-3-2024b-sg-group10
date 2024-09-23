@@ -92,6 +92,7 @@
       }
     },
     "Avatar URL" : {
+      "extractionState" : "stale",
       "localizations" : {
         "vi" : {
           "stringUnit" : {
@@ -764,6 +765,7 @@
       }
     },
     "Update Information" : {
+      "extractionState" : "stale",
       "localizations" : {
         "vi" : {
           "stringUnit" : {

@@ -9,81 +9,78 @@ struct UpdateUserView: View {
     @State private var email: String = ""
     @State private var role: String = ""
     @State private var avatar: String = ""
+    
+    @State private var showDefaultAvatar: Bool = false
 
     var body: some View {
-        ZStack {
-            // Background gradient for the entire view
-            LinearGradient(gradient: Gradient(colors: [Color.blue.opacity(0.4), Color.white]), startPoint: .top, endPoint: .bottom)
-                .edgesIgnoringSafeArea(.all)
-            
-            VStack(spacing: 16) {
-                if let userInfo = userInfo {
-                    // User info with custom styling
-                    UserInfoView(label: "User ID", value: userInfo["userId"] as? String ?? "N/A")
-                    
-                    // Email input field
-                    TextField("Email", text: $email)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .padding(.horizontal)
-                        .onAppear {
-                            self.email = userInfo["email"] as? String ?? ""
-                            self.role = userInfo["role"] as? String ?? ""
-                            self.avatar = userInfo["avatar"] as? String ?? ""
-                        }
-                    
-                    // Role input field
-                    TextField("Role", text: $role)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .padding(.horizontal)
-                    
-                    // Avatar input field
-                    TextField("Avatar URL", text: $avatar)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .padding(.horizontal)
-                    
-                    // Update Button with improved design
-                    Button(action: {
-                        updateUser()
-                    }) {
-                        Text("Update Information")
-                            .font(.headline)
-                            .foregroundColor(.white)
+        VStack {
+            if let userInfo = userInfo {
+                ZStack {
+                    if showDefaultAvatar || avatar.isEmpty || URL(string: avatar) == nil {
+                        Image(systemName: "person.circle")
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: 100, height: 100)
+                            .clipShape(Circle())
+                            .shadow(radius: 5)
                             .padding()
-                            .frame(maxWidth: .infinity)
-                            .background(Color.blue)
-                            .cornerRadius(12)
-                            .shadow(color: Color.blue.opacity(0.3), radius: 6, x: 0, y: 4)
+                    } else {
+                        AsyncImage(url: URL(string: avatar)) { image in
+                            image
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
+                                .frame(width: 100, height: 100)
+                                .clipShape(Circle())
+                                .shadow(radius: 5)
+                                .padding()
+                        } placeholder: {
+                            ProgressView()
+                                .frame(width: 100, height: 100)
+                        }
                     }
-                    .padding(.top, 16)
-                    
-                } else if let errorMessage = errorMessage {
-                    // Error message display
-                    Text("Error: \(errorMessage)")
-                        .foregroundColor(.red)
-                        .fontWeight(.semibold)
-                        .padding()
-                } else {
-                    // Loading state
-                    ProgressView("Loading user info...")
-                        .padding()
-                        .background(Color.white)
-                        .cornerRadius(8)
-                        .shadow(color: Color.black.opacity(0.2), radius: 6, x: 0, y: 4)
                 }
+                .onAppear {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                        self.showDefaultAvatar = true
+                    }
+                }
+
+                TextField("Email", text: $email)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .padding()
+                    .onAppear {
+                        self.email = userInfo["email"] as? String ?? ""
+                        self.role = userInfo["role"] as? String ?? ""
+                        self.avatar = userInfo["avatar"] as? String ?? ""
+                    }
+
+                TextField("Role", text: $role)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .padding()
+
+                Button(action: {
+                    updateUser()
+                }) {
+                    Text("Update")
+                        .padding()
+                        .foregroundColor(.white)
+                        .background(Color.blue)
+                        .cornerRadius(8)
+                }
+                .padding(.top)
+            } else if let errorMessage = errorMessage {
+                Text("Error: \(errorMessage)")
+                    .padding()
+                    .foregroundColor(.red)
+            } else {
+                Text("Loading user info...")
+                    .padding()
             }
-            .padding()
-            .background(
-                RoundedRectangle(cornerRadius: 16)
-                    .fill(Color.white.opacity(0.9))
-                    .shadow(color: Color.gray.opacity(0.3), radius: 8, x: 0, y: 6)
-            )
-            .padding()
         }
         .onAppear {
             fetchUserInfo()
         }
         .navigationTitle("User Info")
-        .navigationBarTitleDisplayMode(.inline)
     }
 
     func fetchUserInfo() {
@@ -197,31 +194,8 @@ struct UpdateUserView: View {
     }
 }
 
-struct UserInfoView: View {
-    var label: String
-    var value: String
-
-    var body: some View {
-        HStack {
-            Text(label)
-                .fontWeight(.semibold)
-                .frame(width: 100, alignment: .leading)
-            Text(value)
-                .foregroundColor(.blue)
-                .lineLimit(1)
-                .truncationMode(.tail)
-            Spacer()
-        }
-        .padding()
-        .background(Color(.systemGray6))
-        .cornerRadius(12)
-        .shadow(color: Color.black.opacity(0.1), radius: 4, x: 0, y: 2)
-        .padding(.vertical, 6)
-    }
-}
-
 struct UpdateUserView_Previews: PreviewProvider {
     static var previews: some View {
-        UpdateUserView(token: "your_jwt_token_here")
+        UpdateUserView(token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmVlNzMxMjJmZDIyOTllZWNkNzE5MmYiLCJyb2xlIjoidXNlciIsImlhdCI6MTcyNjk5NTkwOSwiZXhwIjoxNzI3MDgyMzA5fQ.0KenY0L7_BY270cfqCbRgV-hEdUmNGdhoPFxIotz-ek")
     }
 }
