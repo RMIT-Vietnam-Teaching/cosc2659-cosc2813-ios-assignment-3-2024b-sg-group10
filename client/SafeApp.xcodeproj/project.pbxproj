@@ -47,7 +47,6 @@
 		F430D15A2C9B2A3000409D31 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F430D1592C9B2A3000409D31 /* User.swift */; };
 		F430D15C2C9B2B4E00409D31 /* UserListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F430D15B2C9B2B4E00409D31 /* UserListView.swift */; };
 		F430D15E2C9B2D7300409D31 /* TrafficReportListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F430D15D2C9B2D7300409D31 /* TrafficReportListView.swift */; };
-		F4488FE22C9AEBF500FA3289 /* NotificationRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4488FE12C9AEBF500FA3289 /* NotificationRow.swift */; };
 		F4488FE42C9AED3100FA3289 /* UpdateNotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4488FE32C9AED3100FA3289 /* UpdateNotificationView.swift */; };
 		F458297B2C9C2AAB00AC0742 /* UserUpdateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F458297A2C9C2AAB00AC0742 /* UserUpdateView.swift */; };
 		F48E83282C9D574E00075242 /* HomeDashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48E83272C9D574E00075242 /* HomeDashboard.swift */; };
@@ -118,7 +117,6 @@
 		F430D1592C9B2A3000409D31 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		F430D15B2C9B2B4E00409D31 /* UserListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListView.swift; sourceTree = "<group>"; };
 		F430D15D2C9B2D7300409D31 /* TrafficReportListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrafficReportListView.swift; sourceTree = "<group>"; };
-		F4488FE12C9AEBF500FA3289 /* NotificationRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationRow.swift; sourceTree = "<group>"; };
 		F4488FE32C9AED3100FA3289 /* UpdateNotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateNotificationView.swift; sourceTree = "<group>"; };
 		F458297A2C9C2AAB00AC0742 /* UserUpdateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserUpdateView.swift; sourceTree = "<group>"; };
 		F48E83272C9D574E00075242 /* HomeDashboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDashboard.swift; sourceTree = "<group>"; };
@@ -266,7 +264,6 @@
 				F4042E0B2C9334160012A67D /* ContactForm.swift */,
 				F49096212C96B14400786EDC /* Constants.swift */,
 				F42B6EA32C980DE200B3A70A /* UserSession.swift */,
-				F4488FE12C9AEBF500FA3289 /* NotificationRow.swift */,
 				F4488FE32C9AED3100FA3289 /* UpdateNotificationView.swift */,
 				F4B9E7B42C9AF4DD0010D4F7 /* NotificationListView.swift */,
 			);
@@ -435,7 +432,6 @@
 				F4042DE92C92CADE0012A67D /* NotificationScreen.swift in Sources */,
 				F42B6EA92C98371900B3A70A /* NotificationViewModel.swift in Sources */,
 				F4488FE42C9AED3100FA3289 /* UpdateNotificationView.swift in Sources */,
-				F4488FE22C9AEBF500FA3289 /* NotificationRow.swift in Sources */,
 				F4042E0E2C9334320012A67D /* AddContactView.swift in Sources */,
 				07FE76CD2C9FD74F00065D59 /* AppMenu.swift in Sources */,
 				07FE76CF2C9FD7A900065D59 /* SettingsView.swift in Sources */,
